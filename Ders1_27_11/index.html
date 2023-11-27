@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- doctype html5 standartında oluğunu belirtiyor-->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sayfa açıklaması" />
+    <meta name="keywords" content="" />
+    <!--google artık meta keywordlere bakmıyor sayfa içeriğine bakıyor meta oluşturma artık eskide kaldı-->
+    <link rel="stylesheet" href="still.css" />
+
+    <title>Web Sitem</title>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif; /* helvetica dünyaca kabul görmüş bir font kendi sitendede kullabişlirisn*/
+        background-color: azure;
+        margin: 0;
+        padding: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      p {
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <!--  Kullanıcının gördüğü kısım Arka planda olanlarla ilgilenmiyor. -->
+    <!-- Metin Başlık Etiketleri-->
+    <!--
+    <h1>başlık h1</h1>
+    <h2>başlık h2</h2>
+    <h4>başlık h4</h4>
+    <h6>başlık h6</h6>
+    -->
+
+    <!-- Paragraf etiketi -->
+    <!--
+
+        <p>p parağraf yazıları</p>
+      <strong>strong Meting Türü </strong>
+      <b>b Metin türü</b>
+      <em>italik</em>
+      <i>i italik</i>
+      <u>Altı çizgili</u>  -->
+
+    <!--Websitesi  üç alandan oluşur
+       Birinci alan Header   Başlık logo anabaşlık gibi alanlar içinde bulunur-->
+
+    <header>
+      <h1>HTML Sayfası Başlığı</h1>
+      <!--Navigationbar biizim menülerimiz yönlendirdiğimiz linkler barındırındırdığımız alan -->
+      <nav>
+        <ul>
+          <li><a href="#">Ana Sayfa</a></li>
+          <li><a href="#">Hakkında</a></li>
+          <li><a href="#">İletişim</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- header footer ve navigatipon bar layout la çekilir normalde Her sayfamızda aynı şeyleri tek tek yazmamak için-->
+    <!--header ve footerın çıkarınca ortada bizim main kısmıımız kalıyor bunuda Sectionlara böleriz-->
+    <main>
+      <section>
+        <h2>İçerik Başlığı</h2>
+        <p>
+          Bu bir Parağraf örneğidir. HTML bileşenlerini ele aldığımız dersin p
+          etiketi.
+        </p>
+        <img
+          src="https://cdn.gcp.techcareer.net/techcareer_net_f562b283f4/techcareer_net_f562b283f4.png?updated_at=2022-07-29T10:31:34.684Z"
+          alt="Resim Açıklaması"
+          style="width: 258px"
+          height="250px"
+        />
+        <a href="https://www.techcareer.net">Techcareer.net</a>
+      </section>
+
+      <section>
+        <h2>Alan2</h2>
+        <p>
+          Bu bir Parağraf örneğidir. HTML bileşenlerini ele aldığımız dersin p
+          etiketi.
+        </p>
+        <img
+          src="https://cdn.gcp.techcareer.net/techcareer_net_f562b283f4/techcareer_net_f562b283f4.png?updated_at=2022-07-29T10:31:34.684Z"
+          alt="Resim Açıklaması"
+          style="width: 258px"
+          height="250px"
+        />
+        <a href="https://www.techcareer.net">Techcareer.net</a>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 - Copyright</p>
+    </footer>
+  </body>
+</html>

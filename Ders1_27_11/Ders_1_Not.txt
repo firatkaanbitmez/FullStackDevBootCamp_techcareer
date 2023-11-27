@@ -1,0 +1,26 @@
+**Bir websitesini çalışma Mantığı Nedir?
+    http:// techcareer.net / bootcamp /index
+    techcareer.net => Domain Kaynağın bulunduğu yer
+    bootcamp => Yolumuz Sunucu üzerindeki tam açık adresimiz oluyor    
+    httpS: ayrıca güvenlik protokolü
+    index => Sayfa ismi
+
+    URL Tıklama istek=Request
+
+    Kullanıcıİstek URL-> Data-> Response ->istenileni döndürür
+
+    ASP'de MVC dediğimiz    M=Model(Data) V=arayüz C=Controoler(arayüz ile data arasını kontrol ediyor)
+    MVC=Model View Controller
+
+    Her tıklama bir Request tıklama sonrasında ekrana gelen her ekranda bir Response View
+
+    HTML bir işaretleme dilidir. 
+    Html ile bir websitesinin çatısını oluştururuz. CSS ile Görsellik veririz.
+    JavaScript ile interaktif özellikleri sağlarız.
+    
+
+
+    İstenilen
+    HTML kullanarak bir web sitesini
+    
+    academyakm0@gmail.com
