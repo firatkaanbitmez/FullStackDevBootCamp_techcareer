@@ -1,0 +1,40 @@
+/*h1 {
+  color: red;
+}
+#h2id {
+  color: blue;
+  background-color: aqua;
+}
+.h3class {
+  color: black;
+  background-color: chartreuse;
+}
+
+ul li a {
+  text-decoration: none;
+}
+
+.info span {
+  color: blue;
+}
+
+.info .spanCl {
+  color: red;
+}
+
+* {
+  font-weight: bold;
+}
+*/
+
+* {
+  color: green;
+}
+h1 {
+  color: blue;
+}
+/*  hiyerarşi söz konusu yukardan aşağı geldikçe en altttaki kavram geçerlidir. Eğer özell id li etiketlendirmeler varsa onlar üstündür*/
+#logo {
+  color: brown !important; /* !important bunu hiçbir koşul değiştiremez hiyerarşide en üstte taşır kimse ezemez*/
+}
+/* Eğer HTML Kodunda html kodunun yanına style color şeklinde yazarsak style.css dosyasını önemsemez html kodundaki style daha üstündür hiyerarşide*/

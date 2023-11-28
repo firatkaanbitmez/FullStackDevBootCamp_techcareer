@@ -1,0 +1,40 @@
+****Block and Inline
+https://www.w3schools.com/html/html_blocks.asp
+
+    Block Elementler => <address><article><aside><blockquote><canvas><dd><div><dl><dt><fieldset><figcaption><figure><footer><form><h1>-<h6><header><hr><li><main><nav><noscript><ol><p><pre><section><table><tfoot><ul><video>
+
+    Inline Elementler => <a><abbr><acronym><b><bdo><big><br><button><cite><code><dfn><em><i><img><input><kbd><label><map><object><output><q><samp><script><select><small><span><strong><sub><sup><textarea><time><tt><var>
+
+
+Block elementlerin büyüklüğünü küçüklüğü kontrol edebiliriz.
+Inline olan bir bir elementi hiç bir koşulda boyutlandıramazsın.
+
+
+
+ID ve CLASS FARKLAR
+ID= dedidğimiz etiket sayfa içinde benzersiz olması gereken etikettir. ID tc kimllik numarası gibi sayfaya özeldir.
+class= birden fazla öğeyi ortak bir grupta toplamak için kullanılır class ile aynı özellikleri aynı stilleri verebiliriz.
+
+
+
+
+İmleç (bookmark) arkaşınıza link gönderirken ID ile gönderirsiniz arkaşınız tıkladığında o kısma direk gider.
+bookmark ile sayfa içinde dolaşmaları yapabiliyoruz.
+
+
+
+CSS Nedir?
+Html gibi Programlama dili değildir. 
+Html web sayfasının yapısını oluştururken. Css bu sayfanın nasıl görüneceğini oluşturur.
+
+Cssin üç ana parçadan oluşur
+Selector(id class,etiket) 
+property(özellik) örneğin a ya bir renk ataması
+value(değer) #333 gibi renk değeri atamak
+
+Stilleri üç farklı şekilde kullanabiliriz.
+
+
+
+ÖDEV /* içeriğin taşmasını nasıl önleriz.*/ padding.html deki içerin taşmasını nasıl önerliz
+    

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Padding</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        margin-bottom: 20px;
+        background-color: aqua;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      /* box2 de contextbox dediğimizde*/
+      .box2 {
+        width: 200px;
+        height: 100px;
+        margin-bottom: 20px;
+        background-color: aqua;
+        padding: 50px;
+        box-sizing: content-box;
+/* içeriğin taşmasını nasıl önleriz.*/
+}
+    </style>
+  </head>
+  <body>
+    <div class="box">BOX 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum accusamus omnis vero temporibus fugit perspiciatis eius ut porro sed error animi accusantium quisquam, voluptate, veritatis nam iure facilis commodi quam./div>
+    <div class="box2">BOX 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga voluptate aspernatur, recusandae doloribus omnis aperiam earum odio amet veniam totam praesentium magni dolorem? Autem, cumque? Distinctio laudantium quod earum aperiam?</div>
+  </body>
+</html>

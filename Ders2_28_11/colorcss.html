@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Css</title>
+    <style>
+      .rgb-color {
+        background-color: rgb(255, 0, 0);
+        color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .hex-color {
+        background-color: #00ff00;
+        color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .opacity-color {
+        background-color: rgba(0, 0, 255, 0.7);
+        color: white;
+        padding: 20px;
+      } /*
+      .box {
+        background-image: url("/firatweb/FullStackDevBootCamp/Ders2_28_11/logo.png");
+        width: 640px;
+        height: 480px;
+        color: white;
+      }*/
+      body {
+        /* background-image: url("/firatweb/FullStackDevBootCamp/Ders2_28_11/logo.png");
+        background-size: 100px;*/
+        /* yukardaki yerine bu şekildede kullanabiliriz.*/
+        background: #ffff url("logo.png") no-repeat right top;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h3>Box</h3>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.!</p>
+    </div>
+
+    <div class="rgb-color">RGB Renk: rgb(255,0,0)</div>
+    <div class="hex-color">Hexadecimal Renk: #00FF00</div>
+    <div class="opacity-color">Opaklık: rgba(0,0,255,0.5)</div>
+  </body>
+</html>
