@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ders 2</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="logo.png" alt="Logo" />
+      <nav>
+        <ul>
+          <li><a href="#About">About</a></li>
+          <li><a href="#Works">Works</a></li>
+          <li><a href="#Contact">Contact</a></li>
+          <li><a href="#table">Table</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="About">
+        <div class="about-container container">
+          <h2>About</h2>
+          <p>
+            Lorem, ipsum dolor <span> architecto</span>sit amet consectetur
+            adipisicing elit. Quae incidunt labore, aspernatur ipsum
+            necessitatibus, distinctio optio cupiditate est itaque inventore
+            nesciunt explicabo suscipit autem, quo architecto saepe.
+            Maiores,<span> architecto</span>vel cum!.
+          </p>
+        </div>
+      </section>
+
+      <section id="Works">
+        <div class="work-container container">
+          <h2>Works</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae
+            incidunt labore,<span> architecto</span> aspernatur ipsum
+            necessitatibus, distinctio optio cupiditate est itaque inventore
+            <span> architecto</span> nesciunt explicabo suscipit autem, quo
+            architecto saepe. Maiores, vel cum!.
+          </p>
+        </div>
+      </section>
+
+      <section id="Contact">
+        <div class="contact-container container">
+          <h2>Contact</h2>
+          <p>
+            Lorem, ipsum dolor sit<span> architecto</span> amet consectetur
+            adipisicing elit. Quae incidunt labore, aspernatur ipsum
+            necessitatibus, distinctio optio cupiditate est itaque inventore
+            nesciunt explicabo suscipit autem, quo architecto saepe.
+            Maiores,<span> architecto</span> vel cum!.
+          </p>
+        </div>
+
+        <div class="contact-form">
+          <form id="frm">
+            <label for="ad">Your Name:</label>
+            <input type="text" id="ad" name="ad" required />
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="konu">Subject:</label>
+            <input type="text" id="konu" name="konu" required />
+
+            <label for="mesaj">Your Message:</label>
+            <textarea id="mesaj" name="mesaj" required></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="table">
+        <h2>Tablo</h2>
+        <table id="datatable">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+          </tr>
+        </table>
+      </section>
+    </main>
+
+    <script>
+      document
+        .getElementById("frm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var name = document.getElementById("ad").value;
+          var email = document.getElementById("email").value;
+          var subject = document.getElementById("konu").value;
+          var message = document.getElementById("mesaj").value;
+
+          var table = document.getElementById("datatable");
+          var newRow = table.insertRow(table.rows.length);
+          var cell1 = newRow.insertCell(0);
+          var cell2 = newRow.insertCell(1);
+          var cell3 = newRow.insertCell(2);
+          var cell4 = newRow.insertCell(3);
+
+          cell1.innerHTML = name;
+          cell2.innerHTML = email;
+          cell3.innerHTML = subject;
+          cell4.innerHTML = message;
+
+          document.getElementById("frm").reset();
+        });
+    </script>
+  </body>
+</html>
