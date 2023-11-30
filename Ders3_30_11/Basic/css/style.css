@@ -3,9 +3,11 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 ul,
-l {
+li {
     margin: 0;
     padding: 0;
 }
@@ -19,35 +21,31 @@ header {
     background-color: #333;
     color: #fff;
     padding: 20px;
-
 }
 
-.navbar {
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
 }
 
-.navbar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+.navbar ul li {
+    margin: 0 10px;
 }
 
-.navbar li {
-    margin: 0 15px;
-}
-
-.navbar a {
+.navbar ul li a {
     text-decoration: none;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.6s ease-in-out;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+
 }
 
-.navbar a:hover {
-    color: #02c858;
+.navbar ul li a:hover {
+    background-color: #a49494;
 }
 
 main {
@@ -91,9 +89,7 @@ section {
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-
-
+    transition: tranform 0.3s ease-in-out;
 }
 
 .info:hover {
@@ -104,8 +100,6 @@ section {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    /* sayfa daraldıkça aşşağı kaysın*/
-
 }
 
 .card {
@@ -115,10 +109,9 @@ section {
     text-align: center;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: tranform 0.3s ease-in-out;
 
 }
-
 
 .card:hover {
     transform: translateY(-10px);
@@ -131,8 +124,8 @@ section {
 }
 
 .card h3 {
-    margin-top: 20px;
-
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .card p {
@@ -182,7 +175,7 @@ section {
 input[type="text"],
 input[type="email"],
 textarea {
-    width: calc(100%-16px);
+    width: calc(100% - 16px);
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #ccc;
@@ -197,13 +190,12 @@ button[type="submit"] {
     background-color: #333;
     color: #fff;
     border: none;
-
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
 
-button[type="submit"] {
+button[type="submit"]:hover {
     background-color: #555;
 }
 
@@ -216,15 +208,76 @@ button[type="submit"] {
     color: #fff;
     font-size: 24px;
     margin: 0 10px;
+
 }
 
 .social-media-icons a:hover {
-    color: #a49494;
+    color: #a49494
 }
 
-/*tablet*/
-@media (max-width:768px) {}
+/* Tablet */
+@media(max-width: 768px) {
+    header {
+        background-color: brown;
+        color: #fff;
+        padding: 20px;
+    }
 
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+    }
 
-/*telefon*/
-@media (max-width:565px) {}
+    .navbar ul li {
+        margin: 0 10px;
+    }
+
+    .navbar ul li a {
+        text-decoration: none;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease-in-out;
+
+    }
+
+    .navbar ul li a:hover {
+        background-color: #a49494;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        background-color: blue;
+        color: #fff;
+        padding: 20px;
+    }
+
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navbar ul li {
+        margin: 0 10px;
+    }
+
+    .navbar ul li a {
+        text-decoration: none;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease-in-out;
+
+    }
+
+    .navbar ul li a:hover {
+        background-color: #a49494;
+    }
+}
