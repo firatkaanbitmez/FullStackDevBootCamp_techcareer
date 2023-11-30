@@ -1,0 +1,34 @@
+***Font  - Ölçeklendirme
+    Ölçü birimleri:
+    piksel
+    em
+
+    1em=16px eşittir *default olarak
+https://fonts.google.com
+font tasarımlarını bulmak için google font kullanılabilir
+
+
+
+
+**pseudo classlar
+Kullanıcı etkileşimli bir siteye yönlendirmek amacımız
+Buttonların Linklerin.. hal davranışları
+
+https://www.w3schools.com/css/css_pseudo_classes.asp
+
+
+
+***Position
+
+static: varsayılan default görünüm
+relatic,absolute,fixed,
+            /*     ABSOLUTE VE FİXED inlinedır*/
+
+
+***Flexbox
+Arayüzümüzde bulunan öğeleri düzenlemek için kullanılabilir
+display:inline-flex gibi kullanılabilir içeriğe göre kullanımları vardır
+
+
+**Responsive
+    

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            height: 300px;
+            border: 3px solid #ccc;
+        }
+
+        .static {
+            background-color: red;
+        }
+
+        .relative {
+            background-color: aquamarine;
+            position: relative;
+            top: 30px;
+            left: 50px;
+        }
+
+        .absolute {
+            background-color: blueviolet;
+            position: absolute;
+            top: 80px;
+            /*     ABSOLUTE VE FİXED inline*/
+            right: 20px;
+        }
+
+        .fixed {
+            /* Genelde Topbar gibi sayfada sabit olmasını istediğimiz şeylerde kullanırız*/
+            position: fixed;
+            background-color: brown;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="static">Static</div>
+        <div class="relative">relative</div>
+        <div class="absolute">absolute</div>
+        <div class="fixed">fixed</div>
+    </div>
+</body>
+
+</html>

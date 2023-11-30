@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox</title>
+
+    <style>
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 300px;
+            background-color: antiquewhite;
+            padding: 10px;
+        }
+
+        .item {
+            width: 50px;
+            height: 50px;
+            background-color: brown;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin: 5px;
+            flex-shrink: 0;
+            /* flex-shrink Boyutunu sabitleniyor*/
+        }
+
+        p {
+            font-family: sans-serif;
+            font-size: 50px;
+
+        }
+
+        .flex-container p {
+            font-family: serif;
+            font-size: 50px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, commodi! Modi libero voluptatibus nostrum
+            eum quae aliquid ex cum consectetur ut esse? Provident, officia aspernatur pariatur fugit beatae sunt
+            fugiat?</p>
+    </div>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam sit sequi exercitationem quae vero velit
+        tempore doloremque soluta ad facilis, natus voluptate laudantium officiis laborum praesentium minima eligendi
+        harum est!</p>
+</body>
+
+</html>
