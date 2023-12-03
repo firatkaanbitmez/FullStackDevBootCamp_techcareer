@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Fırat Bitmez - Blog</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/projectimage/newlogo.png" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/blog.css" />
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+
+
+<body>
+
+    <header>
+
+        <div id="notification"></div>
+        <div class="nav-header">
+            <div class="nav-brand">
+                <i class="fa fa-bars fa-3x"></i>
+                <div id="menu-container">
+                    <div id="menu-textcontainer">
+                        <div>
+                            <span>&lt;&lt;&lt;</span> Blog <span>&gt;&gt;&gt;</span>
+                        </div>
+                    </div>
+                    <div id="menu">
+                        <ul id="myMenu">
+                            <li data-menuanchor="home"><a href="#home"><i class="fas fa-arrow-left"></i> Back Home</a>
+                            </li>
+                            <li class="nav-search">
+                                <input type="text" placeholder="Search">
+                                <button type="button"><i class="fas fa-search"></i></button>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobil-bar">
+            <div class="custom-text-container">
+                <div>
+                    <span>&lt;&lt;&lt;</span> Blog <span>&gt;&gt;&gt;</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-screen">
+            <i class="fa fa-times fa-3x"></i>
+            <div class="nav-container">
+                <div class="nav-links">
+                    <ul id="myMenu">
+                        <li data-menuanchor="home"><a href="#home"><i class="fas fa-arrow-left"></i> Back Home</a></li>
+                    </ul>
+
+                    <li class="nav-search">
+                        <input type="text" placeholder="Search">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div id="background-container">
+            <img src="assets/img/projectimage/wallpaper1.jpg" alt="Background Image 1" />
+            <img src="assets/img/projectimage/wallpaper2.jpg" alt="Background Image 2" />
+            <img src="assets/img/projectimage/wallpaper3.jpg" alt="Background Image 3" />
+            <img src="assets/img/projectimage/wallpaper4.jpg" alt="Background Image 4" />
+            <img src="assets/img/projectimage/wallpaper5.jpg" alt="Background Image 5" />
+        </div>
+    </header>
+
+    <div id="main">
+        <div class="section blog" data-anchor="blog">
+            <div class="container">
+                <!-- Featured Post -->
+                <div class="featured-post">
+                    <img src="posts/img/featured-image.jpg" alt="Featured Post Image">
+                    <h1><a href="posts/featured-full-post-page.html">AI in Computer Engineering</a></h1>
+                    <p class="date">Date: September 1, 2023</p>
+                    <p class="content">
+                        Explore the intersection of computer engineering and artificial intelligence,
+                        examining the latest trends, challenges, and breakthroughs in this dynamic field.
+                    </p>
+                </div>
+
+                <!-- Blog Grid -->
+                <div class="blog-grid">
+
+                    <div class="blog-post">
+                        <div class="blog-card">
+                            <img src="posts/img/image1.jpg" alt="Blog Post Image 1">
+                            <h1><a href="posts/full-post-page1.html">The Role of Machine Learning in Software
+                                    Development</a></h1>
+                            <p class="date">Date: September 1, 2023</p>
+                            <p class="content">
+                                Dive into how machine learning is reshaping the landscape of software development,
+                                from automated testing to intelligent code generation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="blog-post">
+                        <div class="blog-card">
+                            <img src="posts/img/image2.jpg" alt="Blog Post Image 2">
+                            <h1><a href="posts/full-post-page2.html">Building Smart Systems: An Overview of
+                                    Embedded AI</a></h1>
+                            <p class="date">Date: September 2, 2023</p>
+                            <p class="content">
+                                Learn about the integration of artificial intelligence in embedded systems,
+                                exploring real-world applications and the challenges faced by engineers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="blog-post">
+                        <div class="blog-card">
+                            <img src="posts/img/image3.jpg" alt="Blog Post Image 3">
+                            <h1><a href="posts/full-post-page3.html">Challenges in Implementing AI Ethics in
+                                    Computer Engineering</a></h1>
+                            <p class="date">Date: September 3, 2023</p>
+                            <p class="content">
+                                Examine the ethical considerations and dilemmas surrounding the implementation of AI
+                                technologies in computer engineering projects, and the efforts to address them.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <footer class="site-footer">
+        <p>&copy; 2023 firatbitmez.com All rights reserved.</p>
+    </footer>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

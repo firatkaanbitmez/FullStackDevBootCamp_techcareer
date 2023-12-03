@@ -1,0 +1,140 @@
+.container {
+    background-color: #F6F5F2;
+
+}
+
+.featured-post {
+    /* Style for the featured post at the top */
+    background-color: #fff;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 150px;
+}
+
+.featured-post img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.blog-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #F6F5F2;
+    /* Set the background color to the desired color */
+    padding-top: 50px;
+    /* Add top padding to create space between the featured post and regular posts */
+}
+
+.blog-post {
+    flex: 0 0 calc(50% - 15px);
+    /* 2 posts per row with spacing */
+    margin-bottom: 30px;
+}
+
+.blog-card {
+    /* Style for each post card in the grid */
+    background-color: #F6F5F2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.date {
+    color: #777;
+}
+
+
+/* Search bar stil */
+.nav-search {
+    display: flex;
+    align-items: center;
+    color: #0a0a0a;
+
+}
+
+.nav-search input[type="text"] {
+    padding: 5px;
+    margin-right: 5px;
+    color: #0a0a0a;
+}
+
+.nav-search button {
+    background-color: #11b2cf;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+
+/* Add this CSS to remove underline and change cursor on blog post titles */
+h1 a {
+    text-decoration: none;
+    /* Remove underline */
+    cursor: pointer;
+    /* Change cursor style to pointer */
+    color: #11b2cf;
+}
+
+h1 a:hover {
+    text-decoration: underline;
+    /* Add underline on hover */
+}
+
+
+@media (max-width:767px) {
+    .featured-post {
+        /* Style for the featured post at the top */
+        background-color: #fff;
+        padding: 0px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .blog-post {
+        flex: 1;
+    }
+
+    .blog-grid {
+        padding-top: 50px;
+    }
+
+    .custom-text-container div {
+        font-family: "Dancing Script", cursive;
+        font-size: 38px;
+        color: #fff;
+        text-align: start;
+        letter-spacing: 5px;
+        display: flex;
+        margin-top: 5px;
+        align-items: flex-start;
+    }
+
+    .custom-text-container span {
+        font-size: 56px;
+        color: var(--primary-color);
+        margin: 0px;
+        text-align: start;
+        letter-spacing: 5px;
+        display: flex;
+        margin-top: -15px;
+
+    }
+
+}
