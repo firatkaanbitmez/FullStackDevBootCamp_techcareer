@@ -1,0 +1,23 @@
+Bootstrap 
+Bootstrap, açık kaynaklı bir web framework'üdür ve Twitter tarafından geliştirilmiştir. Temel amacı, web geliştiricilere hızlı, duyarlı ve şık web sayfaları oluşturmak için bir dizi araç ve bileşen sunmaktır. İçerisinde hazır HTML, CSS ve JavaScript kodları bulunduran Bootstrap, aşağıdaki özelliklere sahiptir:
+
+Grid System: Sayfayı satır ve sütunlara bölen bir yapı sağlar, böylece içeriği düzenlemek ve farklı ekran boyutlarına uyum sağlamak kolaylaşır.
+
+Hazır Bileşenler: Önceden tasarlanmış ve stil verilmiş birçok bileşen içerir. Düğmeler, form elemanları, navigasyon çubukları gibi öğeleri kolayca kullanabilirsiniz.
+
+Responsivite: Farklı cihazlarda (bilgisayarlar, tabletler, telefonlar) iyi görünen responsif web sayfaları oluşturmayı destekler.
+
+Tarayıcı Uyumluluğu: Farklı web tarayıcılarında tutarlı bir görüntüleme sağlar.
+
+Modüler Yapı: İhtiyaca göre kullanılabilir bileşenleri seçip projeye entegre etme esnekliği sunar.
+
+
+
+Popper.js
+
+Popper.js, web sayfalarında "popper" adı verilen yerleşik pop-up pencereleri veya açılır pencereleri (tooltip, popover vb.) yönetmek için kullanılan bir JavaScript kütüphanesidir. Bootstrap gibi UI (kullanıcı arayüzü) framework'leri genellikle Popper.js'i kullanarak, belirli bir öğenin ekranın neresinde görüneceğini kontrol ederler.
+
+Popper.js, bir hedef öğe ve bu hedefe bağlı olarak konumlandırılan bir popper öğesi arasındaki yerleşimi düzenleme işlevselliği sağlar. Yani, bir düğmeye tıklandığında veya bir öğenin üzerine gelindiğinde beliren açılır pencereleri veya bilgi kutularını düzenler.
+
+Bootstrap ve benzeri framework'ler Popper.js'i, özellikle de açılır pencereler (popovers) ve araç ipuçları (tooltips) gibi bileşenleri konumlandırmak için kullanır. Popper.js, yerleşik pop-up pencerelerinin ekranın sınırlarına otomatik olarak uyum sağlamasını ve istenilen konuma yerleştirilmesini sağlayarak kullanıcılara daha iyi bir deneyim sunar.
+

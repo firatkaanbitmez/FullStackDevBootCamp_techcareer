@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mükemmel Bootstrap Projesi</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Özel CSS Stilleri -->
+    <style>
+        body {
+            padding-top: 60px;
+        }
+
+        .jumbotron {
+            background-image: url('background.jpg');
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Bootstrap Projesi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Ana Sayfa
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hakkımızda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hizmetlerimiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">İletişim</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <header class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Bootstrap ile Mükemmel Web Projeleri</h1>
+            <p class="lead">Gelişmiş tasarım ve responsivite ile harika projeler oluşturun.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Daha Fazla Bilgi</a>
+        </div>
+    </header>
+
+    <!-- İçerik -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Projemizin İncelikleri</h2>
+                <p class="text-justify">Bootstrap, güçlü bir web framework'üdür ve bu projede kullanımıyla birlikte
+                    hızlı, şık ve responsif bir web sitesi ortaya çıkarmak mümkündür. Navbar, Jumbotron, Grid System
+                    gibi özellikleri sayesinde sayfa yapısı oluşturmak oldukça kolaydır.</p>
+            </div>
+            <div class="col-lg-4">
+                <h2>İlgili Bağlantılar</h2>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Bootstrap Dökümantasyonu</a>
+                    <a href="#" class="list-group-item list-group-item-action">GitHub Repository</a>
+                    <a href="#" class="list-group-item list-group-item-action">Twitter'da Takip Edin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS ve Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

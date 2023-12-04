@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Bootstrap Projesi</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span
+                class="navbar-toggler-icon"></span></button>
+        <!--  bu buttonda kullandığımız özellikler bize şablonda gelen özellikler , target ile açma kapama ile etkileneceği sectionu belirledik, aria-label ile buttonun amacını belirledik, -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="#">Education</a></li>
+                <li class="nav-item active"><a class="nav-link" href="#">Contact</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <!--mt-4 ile üst tarafda 4pxlik bir boşluk verdik. MerginTab4-->
+    <div class="container mt-4">
+        <h1>Bootstrap Örnek Projesi</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum natus repudiandae ducimus numquam suscipit fugit
+            necessitatibus reiciendis! Exercitationem sint veniam voluptatum a suscipit consequuntur, odio ducimus
+            numquam. Perferendis, accusantium et.</p>
+
+        <form>
+            <!--formu oluşturuken her bilgiyi ayrı ayrı divlere al -->
+            <div class="form-group">
+                <label for="examleInputName"> Adınız</label>
+                <input type="text" class="form-control" id="examleInputName" placeholder="Adınız">
+                <!-- for examleInputName kullandığımızda id ile belirteerk şu id ye ait bilgi şeklinde action bir websitesi tasarlarken kullanıyoruz-->
+            </div>
+            <div class="form-group">
+                <label for="examleInputMail"> E-Posta Adresiniz</label>
+                <input type="text" class="form-control" id="examleInputMail" placeholder="E-Posta">
+                <!-- for examleInputName kullandığımızda id ile belirteerk şu id ye ait bilgi şeklinde action bir websitesi tasarlarken kullanıyoruz-->
+            </div>
+            <div class="form-group">
+                <label for="exampleMessage"> Mesajınız</label>
+                <textarea class="form-control" id="exampleMessage" rows="3"
+                    placeholder="Buraya Mesajınızı Giriniz."></textarea>
+                <!-- for examleInputName kullandığımızda id ile belirteerk şu id ye ait bilgi şeklinde action bir websitesi tasarlarken kullanıyoruz-->
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+***Bootstrap      https://getbootstrap.com
+    Twitter tarafından geliştirilmiş bir frameworktur. CSS JS kodları içeririr
+    Mobil uyumluluk, hızlı prototip, gibi çok önemli yanları var
+    Responsive özelliğini çok iyi kullanır
+        GRİD İŞLEMLERİ=> Sayfayı sitemi sutünler ve satırlar olarak parçalayıp kullanabiliyoruz. ve Bu sayede tüm cihazlara uyumlu bir web sitesi yazıyoruz.
+
+        **Responsive web dizayn işlemi Bootstrap sayesinde tüm cihazlarda tüm ölçülere göre web sayfanız gelişiyor.
+
+        Bootstrap web geliştirmede olduğu gibi Mobil oyunlarda genellikle Panel yönetimdede kullanıyoruz.
+
+
+
+        Bootstrap reboot: her tarayıcının kendine has tarzı stilli vardır.(default Styles)
+        Reboot özelliği bootstarp kullandığımız projelerde tarayıcının varsayılan özelliklerini sıfırlar ve Bootstrap tüm özellikleini kullanır
+        Typography: metinlerin biçimlendirilmesii sağlayan bir özelliktir
+
+
+
+
+        BİTİRME PROJESİ
+        ASP.NET Core  backend frontend
+
+        24Aralık SON TESLİM
+
+
+        OCAK AYINDA techcareer.net ücretsiz EĞİTİM AÇACAK
