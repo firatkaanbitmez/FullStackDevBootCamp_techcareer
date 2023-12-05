@@ -1,0 +1,7 @@
+***JavaScript
+    
+    JavaScript, genellikle web tarayıcılarında kullanılan bir programlama dilidir.
+    web sayfalarına etkileşim ve dinamizm eklemek için kullanılır. JavaScript, tarayıcıda çalıştığı için istemci taraflı bir dil olarak kabul edilir. Ancak, Node.js gibi ortamlar aracılığıyla sunucu taraflı da kullanılabilir.
+    Fonksiyon tabanlı olarak gideceğiz. Belirli işlemler tanımlayıp fonksiyonu oluşturur ve ihtiyaç duyduğumuzda o fonksiyonu çağrırırız.
+    Olay Tabanlı programlama
+    
