@@ -1,0 +1,49 @@
+*** ASP.Net Core
+
+    CMD  ile dotnet sürümlerini kotnrol etme
+    dotnet --version 
+    dotnet --list-sdks
+
+    ASP.net core microsoft tarafından web uygulamaları tasarlanmak için tasarlanmış.
+    .net çatısında oluşturulmuştur.Kullanışlı Kolay
+    ASP.net core MVC, razorPages, Web API şeklinde üç farklı işlem gerçekleştirebiliriyoz.
+    C# programla dili kullanılır
+    Biz projelerimizde MVC ve API kullanacağız
+
+
+    **MVC Nedir?
+    ModelViewController
+    Bir tasarım Desenidir.
+    Model =Veri İş tabanlarımızın olduğu alandır.Model Verilerin nasıl işleyeceğini belirler
+    View= kullanıcı arayüz kısmını temsil eder.Html css JS ile oluşturduğumuz Sayfalar kullanıcılara burda görüntülenir.
+    Controller = Veri işlemşlerini model ile gerçekleştirip view ilede gösterir. Controller Tarayıcı ile DB arasında aracı konumdadır.
+
+
+    HTTP YAPISI
+    http hyper text transfer protokü
+    Web üzerinde veri iletişimi için kullanılır.
+
+
+
+   Terminal İşlemleri:
+
+   Location kontrolü kullanacağınız klasörde misiniz değilsen
+   cd ile klasöre git
+
+
+   dotnet new list  // ile gerçekleştirebileceğimiz Proje türlerini görebiliriz.
+   
+   dotnet new mvc -h ile mvc de proje oluştururken neler yapabilirsin help üzeirnden bakabilirsin.
+
+
+   dotnet new mvc -o BootcampApp -f net7.0            //ile projemizi oluşturuyoruz.
+
+    dotnet watch    // ile projeyi çalıştıyoruz
+
+    durdurmak için CTRl C
+
+    dotnet watch run  // ile çalıştırırsak herm CTRL S de proje güncellenir.
+
+
+
+    Program.cs // Projenin başlatılıp sunucuya gönderilinceye kadar burada gerçekleştirilir.
