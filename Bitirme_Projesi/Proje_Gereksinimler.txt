@@ -1,0 +1,52 @@
+ 
+Proje İsmi: ShopCoreProject
+
+Proje Taslağı:
+
+**Models:**
+- Product.cs: Ürün özelliklerini tanımlayan model.
+- Category.cs: Ürün kategorilerini temsil eden model.
+- ShoppingCart.cs: Alışveriş sepetini temsil eden model.
+- Order.cs: Siparişi temsil eden model.
+- User.cs: Kullanıcı bilgilerini içeren model.
+
+**Data:**
+- ApplicationDbContext.cs: Entity Framework kullanarak veritabanı işlemlerini yöneten sınıf.
+- DbInitializer.cs: Veritabanını başlatan sınıf (örneğin, başlangıç ürünleri eklemek için).
+
+**Controllers:**
+- HomeController.cs: Ana sayfa işlemlerini yöneten controller.
+- ProductController.cs: Ürün işlemlerini yöneten controller.
+- CartController.cs: Sepet işlemlerini yöneten controller.
+- OrderController.cs: Sipariş işlemlerini yöneten controller.
+- AccountController.cs: Kullanıcı hesap işlemlerini yöneten controller.
+
+**Views:**
+- Home: Ana sayfa view'leri.
+- Product: Ürünlerin listelendiği ve detaylarının gösterildiği view'ler.
+- Cart: Alışveriş sepeti view'leri.
+- Order: Sipariş işlemleri view'leri.
+- Account: Kullanıcı hesap işlemleri view'leri.
+
+**Services:**
+- ProductService.cs: Ürün işlemlerini yöneten servis.
+- CartService.cs: Sepet işlemlerini yöneten servis.
+- OrderService.cs: Sipariş işlemlerini yöneten servis.
+- UserService.cs: Kullanıcı hesap işlemlerini yöneten servis.
+
+**Repositories:**
+- ProductRepository.cs: Ürün veritabanı işlemlerini yöneten repository.
+- CartRepository.cs: Sepet veritabanı işlemlerini yöneten repository.
+- OrderRepository.cs: Sipariş veritabanı işlemlerini yöneten repository.
+- UserRepository.cs: Kullanıcı veritabanı işlemlerini yöneten repository.
+
+**Utilities:**
+- EmailService.cs: E-posta gönderme işlemlerini yöneten servis (sipariş onayları vb.).
+
+**wwwroot:**
+- Stil dosyaları (CSS), resimler ve istemci tarafı betik dosyaları.
+
+**Startup.cs:**
+- Projenin başlangıç konfigürasyonlarını içeren sınıf.
+
+Bu, temel bir altyapıdır ve ihtiyaçlarınıza göre genişletilebilir. Projeyi başlatmak için, Entity Framework kullanarak bir veritabanı oluşturmayı unutmayın. Ayrıca, kullanıcı girişi ve yetkilendirme gibi güvenlik önlemlerini de eklemeyi düşünmelisiniz.

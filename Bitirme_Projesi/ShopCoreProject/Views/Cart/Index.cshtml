@@ -1,0 +1,42 @@
+﻿<!-- Cart View Index.cshtml-->
+
+
+@model ShopCoreProject.Models.ShoppingCart
+
+@{
+    ViewData["Title"] = "Alışveriş Sepeti";
+}
+
+<div class="container mt-5">
+    <h2>Alışveriş Sepeti</h2>
+    @if (Model.Items.Count == 0)
+    {
+        <p>Sepetiniz boş.</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Ürün Adı</th>
+                    <th scope="col">Fiyat</th>
+                    <th scope="col">Adet</th>
+                    <th scope="col">Toplam</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>@item.Product?.Name</td>
+                        <td>$@item.Product?.Price</td>
+                        <td>@item.Quantity</td>
+                        <td>$@(item.Product?.Price * item.Quantity ?? 0)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p class="text-right"><strong>Toplam: $@Model.TotalPrice</strong></p>
+        <a href="#" class="btn btn-primary">Siparişi Tamamla</a>
+    }
+</div>

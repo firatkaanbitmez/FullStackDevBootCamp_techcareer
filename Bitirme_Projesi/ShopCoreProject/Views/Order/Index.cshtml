@@ -1,0 +1,35 @@
+﻿
+<!-- Order View Index.cshtml-->
+@model Order
+
+@{
+    ViewData["Title"] = "Sipariş Detayları";
+}
+
+<div class="container mt-5">
+    <h2>Sipariş Detayları</h2>
+    <p>Sipariş Tarihi: @Model.OrderDate</p>
+
+    <h3>Sipariş Kalemleri</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ürün Adı</th>
+                <th scope="col">Fiyat</th>
+                <th scope="col">Adet</th>
+                <th scope="col">Toplam</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderItems)
+            {
+                <tr>
+                    <td>@item.Product?.Name</td>
+                    <td>$@item.Product?.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>$@(item.Product?.Price * item.Quantity ?? 0)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

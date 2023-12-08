@@ -1,0 +1,82 @@
+﻿<!-- _Layout.cshtml -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@ViewData["Title"] - ShopCoreProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ShopCoreProject.styles.css" asp-append-version="true" />
+</head>
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Product">Ürünler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Account">Hesabım</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Cart">Sepetim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ana İçerik -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Yan Menü (Sidebar) -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Menü 1
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Menü 2
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Menü 3
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Ana İçerik Alanı -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="fixed-bottom bg-primary text-light text-center py-2">
+        &copy; 2023 ShopCoreProject
+    </footer>
+
+    <!-- Bootstrap JS ve Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-eVSTQN6BdZRR8Lq8hEE0qZQ1NhD5YuEvABfI+RN53sW9V4uL4lC4pC6J5/JpCb5" crossorigin="anonymous"></script>
+</body>
+</html>

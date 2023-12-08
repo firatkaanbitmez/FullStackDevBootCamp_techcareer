@@ -1,0 +1,53 @@
+﻿<!-- Home/Index.cshtml -->
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Logo -->
+            <img src="~/images/logo.png" alt="Logo" class="img-fluid mb-3">
+            
+            <!-- Menüler -->
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">Kategori 1</a>
+                <a href="#" class="list-group-item list-group-item-action">Kategori 2</a>
+                <a href="#" class="list-group-item list-group-item-action">Kategori 3</a>
+                <!-- İstediğiniz kadar kategori ekleyebilirsiniz. -->
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <!-- Hoş Geldiniz Mesajı -->
+            <h2 class="mb-4">Hoş Geldiniz!</h2>
+            <p>Projeye özel ana sayfa içeriği burada yer alabilir.</p>
+
+            <!-- Promosyon Card'ları -->
+            <div class="card-deck">
+                <div class="card">
+                    <img src="~/images/promo1.jpg" class="card-img-top" alt="Promo 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Promosyon 1</h5>
+                        <p class="card-text">Açıklama metni buraya gelebilir.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="~/images/promo2.jpg" class="card-img-top" alt="Promo 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Promosyon 2</h5>
+                        <p class="card-text">Açıklama metni buraya gelebilir.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="~/images/promo3.jpg" class="card-img-top" alt="Promo 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Promosyon 3</h5>
+                        <p class="card-text">Açıklama metni buraya gelebilir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
