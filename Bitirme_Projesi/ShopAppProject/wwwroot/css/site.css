@@ -21,6 +21,9 @@ html {
   min-height: 100%;
 }
 
+.navbar-nav .nav-item .nav-link {
+  color: #fff;
+}
 
 
 /* Kart Renkleri */
@@ -127,11 +130,13 @@ html {
 .carousel-caption {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
-  padding: 5px;
-  text-align: center;
+  padding: 50px;
+  text-align: start;
+  align-items: center;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  max-height: 80%;
   max-width: 500px;
-  margin-left: 30%;
+  margin-left: 40%;
 
 }
 
@@ -201,4 +206,8 @@ html {
   align-items: flex-end;
   justify-content: flex-end;
   height: 100%;
+}
+
+.search-bar {
+  margin-right: 30%;
 }

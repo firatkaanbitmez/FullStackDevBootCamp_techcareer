@@ -41,10 +41,6 @@
       "PackagePath": "staticwebassets\\img\\sanaözel2.jpg"
     },
     {
-      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\specialoffer.png",
-      "PackagePath": "staticwebassets\\img\\specialoffer.png"
-    },
-    {
       "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\süperteklif.jpg",
       "PackagePath": "staticwebassets\\img\\süperteklif.jpg"
     },
@@ -55,6 +51,14 @@
     {
       "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\tv2.jpg",
       "PackagePath": "staticwebassets\\img\\tv2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\tv3.jpg",
+      "PackagePath": "staticwebassets\\img\\tv3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\tv4.jpg",
+      "PackagePath": "staticwebassets\\img\\tv4.jpg"
     },
     {
       "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\yeniyil.jpg",
