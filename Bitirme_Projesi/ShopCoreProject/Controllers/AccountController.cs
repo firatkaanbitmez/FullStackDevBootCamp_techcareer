@@ -1,11 +1,21 @@
 // AccountController.cs
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ShopCoreProject.Models;
-using Microsoft.EntityFrameworkCore.SqlServer;
+using ShopCoreProject.Models; // Add this line
 namespace ShopCoreProject.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
+
         // Kullanıcı hesap bilgilerini gösteren eylem
         public IActionResult Index()
         {
@@ -14,13 +24,7 @@ namespace ShopCoreProject.Controllers
             return View(user);
         }
 
-        // Kullanıcı bilgilerini güncelleyen eylem
-        [HttpPost]
-        public IActionResult Update(User updatedUser)
-        {
-            // Kullanıcının bilgilerini güncellemek için servisi veya repository'i kullanın.
-            // Başarı durumunda başka bir eyleme yönlendirme veya aynı sayfaya geri dönme işlemi yapın.
-            return RedirectToAction("Index");
-        }
+   
+
     }
 }

@@ -6,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore; // Add this line
+
 
 
 namespace ShopCoreProject
@@ -21,9 +24,16 @@ namespace ShopCoreProject
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+           /* services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddScoped<UserManager<User>>();
+            services.AddScoped<SignInManager<User>>();
             services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+    options.UseYourDatabaseProvider(Configuration.GetConnectionString("DefaultConnection")));*/
+       services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
         }
 

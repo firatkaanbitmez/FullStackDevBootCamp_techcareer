@@ -1,15 +1,15 @@
-// ApplicationDbContext.cs
+//ApplicationDbContext.cs
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ShopCoreProject.Models;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<User>
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-    {
-    }
-
-    // DbSet'leriniz buraya eklenecek
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
-    // Diğer DbSet'leri ekleyin
+
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+        // You don't need to initialize DbSet here
+        // DbSet instances will be created by Entity Framework Core
+    }
 }

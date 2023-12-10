@@ -1,4 +1,7 @@
 // Models ShoppingCart.cs örneği
+//Models ShoppingCart.cs
+
+
 using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;

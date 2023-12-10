@@ -1,53 +1,165 @@
-﻿<!-- Home/Index.cshtml -->
+﻿<!--Home/Index.cshtml Ana Sayfa -->
 
 @{
     ViewData["Title"] = "Ana Sayfa";
+    var imgPath = "/img/logo.png"; // Image path wwwroot
 }
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-3">
-            <!-- Logo -->
-            <img src="~/images/logo.png" alt="Logo" class="img-fluid mb-3">
+    <div class="container mt-5">
+
+            <!-- Sana Özel Fırsatlar Alanı -->
+            <div class="container mt-5">
+            <h2 class="text-center">Sana Özel Fırsatlar</h2>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                <div class="card card-custom">
+                    <img src="https://images.hepsiburada.net/banners/s/0/672-378/bannerImage2130_20231208181518.jpeg/format:webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Yeni Yıl Fırsatları</h5>
+                    <p class="card-text">%20 İndirim Fırsatı. Satın aldığınız her oyuncak setiyle 1 tanesi kadar ek çekiniz. (İndirim süresince ve miktar limiti kazanım süresince geçerlidir.)</p>
+                    <a href="#" class="btn btn-primary">İndirimlere Git</a>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <div class="card card-custom">
+                    <img src="/img/sanaözel1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Deri Mont'larda İndirim</h5>
+                    <p class="card-text">%15 İndirim Fırsatı. 1.500 TL ve üzeri siparişlerinizde ücretsiz Kargo Hizmeti sunuyoruz. (İndirim süresince ve miktar limiti kazanım süresince geçerlidir.)</p>
+                    <a href="#" class="btn btn-primary">İndirimlere Git</a>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <div class="card card-custom">
+                    <img src="/img/sanaözel2.jpg"class="card-img-top" alt="..." >
+                    <div class="card-body">
+                    <h5 class="card-title">Ebebek Giyim Ürünlerinde İndirim </h5>
+                    <p class="card-text">%20 İndirim Fırsatı. Minik Yeşil Marka ek özellikli saçlarınız için ücretsiz gül deri sunuyoruz. (İndirim süresince ve miktar limiti kazanım süresince geçerlidir.)</p>
+                    <a href="#" class="btn btn-primary">İndirimlere Git</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+                <!-- Promosyon Alanı -->
+                <div class="mt-5">
+                    <h2 class="mt-4">Sınırlı Süre İndirimdeki Ürünler</h2>
+
+                    
+                    <div class="carousel-outer-frame" style="background-color: #f8694c; padding: 5px; border-radius: 10px; overflow: hidden;">
+                        <div id="productSlider" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- Product 1 -->
+                                <div class="carousel-item active">
+                                    <div class="carousel-inner-frame">
+                                        <div class="card">
+                                            <img src="/img/product1.jpg" style="height:350px; width:100%; object-fit: contain;" class="card-img-top" alt="Product 1">
+                                            <div class="card-body" style="height: 170px;">
+                                                <h5 class="card-title">Laptop</h5>
+                                                <p class="card-text">Slim and powerful laptop for your daily tasks.</p>
+                                                <p class="card-text">Price: $999.99</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product 2 -->
+                                <div class="carousel-item">
+                                    <div class="carousel-inner-frame">
+                                        <div class="card">
+                                            <img src="/img/product2.jpg" style="height:350px; width:100%; object-fit: contain;" class="card-img-top" alt="Product 2">
+                                            <div class="card-body" style="height: 170px;">
+                                                <h5 class="card-title">Desktop PC</h5>
+                                                <p class="card-text">High-performance desktop PC for gaming and work.</p>
+                                                <p class="card-text">Price: $1299.99</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product 3 -->
+                                <div class="carousel-item">
+                                    <div class="carousel-inner-frame">
+                                        <div class="card">
+                                            <img src="/img/product3.jpg" style="height:350px; width:100%; object-fit: contain;" class="card-img-top" alt="Product 3">
+                                            <div class="card-body" style="height: 170px;">
+                                                <h5 class="card-title">Phone</h5>
+                                                <p class="card-text">Latest smartphone with advanced features.</p>
+                                                <p class="card-text">Price: $699.99</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product 4 -->
+                                <div class="carousel-item">
+                                    <div class="carousel-inner-frame">
+                                        <div class="card">
+                                            <img src="/img/product4.jpg" style="height:350px; width:100%; object-fit: contain;" class="card-img-top" alt="Product 4">
+                                            <div class="card-body" style="height: 170px;">
+                                                <h5 class="card-title">Printer</h5>
+                                                <p class="card-text">High-quality printer for your documents.</p>
+                                                <p class="card-text">Price: $149.99</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Navigation Arrows -->
+                            <a class="carousel-control-prev" href="#productSlider" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#productSlider" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon"  aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+
+                   
+                </div>
+                
+           
+
             
-            <!-- Menüler -->
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">Kategori 1</a>
-                <a href="#" class="list-group-item list-group-item-action">Kategori 2</a>
-                <a href="#" class="list-group-item list-group-item-action">Kategori 3</a>
-                <!-- İstediğiniz kadar kategori ekleyebilirsiniz. -->
-            </div>
-        </div>
+            <h1 class="text-center mt-4">Süper Fiyat & Süper Teklif Tümü</h1>
 
-        <div class="col-md-9">
-            <!-- Hoş Geldiniz Mesajı -->
-            <h2 class="mb-4">Hoş Geldiniz!</h2>
-            <p>Projeye özel ana sayfa içeriği burada yer alabilir.</p>
-
-            <!-- Promosyon Card'ları -->
-            <div class="card-deck">
-                <div class="card">
-                    <img src="~/images/promo1.jpg" class="card-img-top" alt="Promo 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Promosyon 1</h5>
-                        <p class="card-text">Açıklama metni buraya gelebilir.</p>
+            <div class="row discounted-products">
+                <div class="col-md-3">
+                    <div class="card">
+                        <a href="Product">
+                            <img src="~/img/süperteklif.jpg" alt="Super Fiyat Teklifleri" class="img-fluid">
+                        </a>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="~/images/promo2.jpg" class="card-img-top" alt="Promo 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Promosyon 2</h5>
-                        <p class="card-text">Açıklama metni buraya gelebilir.</p>
+                <div class="col-md-3">
+                    <div class="card">
+                        <a href="Product">
+                            <img src="~/img/tv1.jpg" alt="New Generation Bone yemek takım" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Fiyat: 5.499,90 TL</p>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="~/images/promo3.jpg" class="card-img-top" alt="Promo 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Promosyon 3</h5>
-                        <p class="card-text">Açıklama metni buraya gelebilir.</p>
+                <div class="col-md-3">
+                    <div class="card">
+                        <a href="Product">
+                            <img src="~/img/tv2.jpg" alt="LG 50UQ75006 50" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Fiyat: 13.493,96 TL</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+        
     </div>
-</div>
+    
