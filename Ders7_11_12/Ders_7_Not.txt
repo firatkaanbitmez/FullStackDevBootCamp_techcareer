@@ -26,9 +26,14 @@ dotnet  add package Microsoft.EntityFrameworkCore.Design --version 7.0.8
 dotnet ef migrations add InitialCreate
 
 
+//dotnet ef migrations remove      SİLMEK İSTERSEN
+ 
 
 
 SQLlite browser indirebilrsin Veritabanına eklenen bilgileri görmek için
 https://sqlitebrowser.org/dl/
 
+DATABASEDE ÖNEMLİ DEĞİŞİKLİKLER YAPTIĞINDA İSİM GİBİ DB Yİ GÜNCELLE
 
+dotnet ef migrations add InitialCreate
+dotnet ef database update

@@ -1,80 +1,79 @@
-﻿@{
-    var imgPath = "/img/logo.png"; // Image path relative to wwwroot
-}
+﻿
 
-
-<!--_Layout.cshtml-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Center Shop - @ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+
     <link rel="stylesheet" href="~/ShopAppProject.styles.css" asp-append-version="true" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-
- 
 </head>
-<body class="bg-light">
+
+<body>
+    <header>       
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
+            <div class="container-fluid mr-8">
+                <!-- Left content: Logo and "Center Shop" text -->
+                <a class="navbar-brand" href="~/">
+                    <img src="~/img/logo.png" alt="Logo" class="img-fluid mr-2" style="max-height: 30px;" />
+                    <span>Center Shop</span>
+                </a>
+
+                <!-- Toggler button for small screens -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <!-- Right content: Navigation links -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="ml-auto search-bar">
+                    <form class="form-inline" style="width: 150%;" >
+                        <input class="form-control mr-sm-2" type="search" placeholder="Ürün, kategori veya marka ara" aria-label="Search">
+                    </form>
+                </div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-center" href="~/">
+                                <br /><i class="fas fa-home fa-2x mr-2"></i> Ana Sayfa
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-center" href="~/Order">
+                                <br /><i class="fas fa-shopping-bag fa-2x mr-2"></i> Siparişlerim
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-center" href="~/Account">
+                                <br /><i class="fas fa-user fa-2x mr-2"></i> Hesabım
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-center" href="~/Cart">
+                                <br /><i class="fas fa-shopping-cart fa-2x mr-2"></i> Sepetim
+                            </a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link text-center" href="~/Customer">
+                                <br /><i class="fas fa-user fa-2x mr-2"></i> Müşteri Listesi
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </nav>
 
 
-
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f8694c;">
-    <div class="container-fluid mr-8">
-        <!-- Left content: Logo and "Center Shop" text -->
-           <a class="navbar-brand" href="~/">
-            <img src="@imgPath" alt="Logo" class="img-fluid mr-2" style="max-height: 30px;" />
-            <span>Center Shop</span>
-        </a>
-
-        <!-- Toggler button for small screens -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-       
-        <!-- Right content: Navigation links -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-           <div class="ml-auto search-bar">
-            <form class="form-inline" style="width: 150%;" >
-                <input class="form-control mr-sm-2" type="search" placeholder="Ürün, kategori veya marka ara" aria-label="Search">
-            </form>
-        </div>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-center" href="~/">
-                        <br /><i class="fas fa-home fa-2x mr-2"></i> Ana Sayfa
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-center" href="~/Order">
-                        <br /><i class="fas fa-shopping-bag fa-2x mr-2"></i> Siparişlerim
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-center" href="~/Account">
-                        <br /><i class="fas fa-user fa-2x mr-2"></i> Hesabım
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-center" href="~/Cart">
-                        <br /><i class="fas fa-shopping-cart fa-2x mr-2"></i> Sepetim
-                    </a>
-                </li>
-            </ul>
-        </div>
         
-    </div>
-</nav>
-
-
-
-
   
    <div class="container-fluid" style="margin-bottom: 0;">
     <div class="row">
@@ -120,7 +119,7 @@
     </div>
   </div>
 
-
+    </header>
     <!-- Ana İçerik -->
     <div class="container-fluid">
         <div class="row">
@@ -131,16 +130,15 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center py-2" style="background-color: #ff8840; color: #fff; font-size:18px">
-        &copy; 2023 Center Shop
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 Center Shop- <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
     </footer>
-
-      <!-- Bootstrap JS ve Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-
-
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

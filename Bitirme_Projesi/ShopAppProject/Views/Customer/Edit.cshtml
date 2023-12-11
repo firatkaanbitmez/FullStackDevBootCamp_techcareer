@@ -1,0 +1,26 @@
+@model Customer
+
+<h2>Customer Güncelle</h2>
+
+<form asp-controller="Customer" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="CustomerId">
+    <div class="mb-3">
+        <label asp-for="CustomerAd" class="form-label">Customer Adı</label>
+        <input asp-for="CustomerAd" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="CustomerSoyad" class="form-label">Customer Soyadı</label>
+        <input asp-for="CustomerSoyad" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Eposta" class="form-label">E Posta</label>
+        <input asp-for="Eposta" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Telefon" class="form-label">Telefon Numarası</label>
+        <input asp-for="Telefon" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+</form>

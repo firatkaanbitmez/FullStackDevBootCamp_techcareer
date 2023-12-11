@@ -1,0 +1,32 @@
+@model IEnumerable<Customer>
+
+<h2>Customer Listesi</h2>
+<a href="/Customer/Create" class="btn btn-primary">Customer Ekle</a>
+<hr>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.CustomerId)</th>
+            <th>@Html.DisplayNameFor(m => m.CustomerAd)</th>
+            <th>@Html.DisplayNameFor(m => m.CustomerSoyad)</th>
+            <th style="width: 150px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CustomerId)</td>
+                <td>@Html.DisplayFor(modelItem => item.CustomerAd)</td>
+                <td>@Html.DisplayFor(modelItem => item.CustomerSoyad)</td>
+                <td>
+                    <a asp-controller="Customer" asp-action="Edit" asp-route-id="@item.CustomerId"
+                        class="btn btn-sm btn-primary">Edit</a>
+                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
