@@ -1,0 +1,34 @@
+**Bir önceki Projeyi devam ettirerek başladık aynı dosyayı kopyalayıp üzerinde çalışmaya devam ettim (BootCampAPP)
+
+**Veritabanı ile yeni Proje yapacaz. Sqllite kullanacaz. 
+https://learn.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli
+
+dotnet new mvc -o BootCampEF -f net7.0         
+
+Sqlite veritabanı kuruyoruz 
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 7.0.8
+
+BootCampEF.csproj dosyasısının içerine veritabanı bağlantını gördük.
+
+
+DateBaseContext  class veritabanı bağlantısını yönetiriz. Uygulamanın veritabanı ile iletişim kurmasını sağlarız.
+
+https://learn.microsoft.com/tr-tr/ef/core/cli/dotnet
+
+appsettings.devo ve program cs e database için gerekli kodları yazdık
+
+Tools:
+dotnet tool install --global dotnet-ef --version 7.0.8
+
+
+dotnet  add package Microsoft.EntityFrameworkCore.Design --version 7.0.8
+
+dotnet ef migrations add InitialCreate
+
+
+
+
+SQLlite browser indirebilrsin Veritabanına eklenen bilgileri görmek için
+https://sqlitebrowser.org/dl/
+
+
