@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\defaultproduct.png",
+      "PackagePath": "staticwebassets\\img\\defaultproduct.png"
+    },
+    {
       "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },

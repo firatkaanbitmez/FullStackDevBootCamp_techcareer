@@ -1,3 +1,5 @@
+
+<!--Views/Product/Create.cshtml-->
 @model Product
 
 <form asp-controller="Product" asp-action="Create" method="post">
@@ -16,6 +18,10 @@
      <div class="mb-3">
         <label asp-for="ProductPrice" class="form-label">Ürün Fiyatı</label>
         <input asp-for="ProductPrice" class="form-control" step="0.01" />
+    </div>
+      <div class="mb-3">
+        <label asp-for="ProductImage" class="form-label">Ürün Resim Yolu veya URL</label>
+        <input asp-for="ProductImage" class="form-control">
     </div>
 
     <button type="submit" class="btn btn-primary">Kaydet</button>

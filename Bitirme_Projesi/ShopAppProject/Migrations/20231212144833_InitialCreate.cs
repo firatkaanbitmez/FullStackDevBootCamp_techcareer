@@ -64,7 +64,8 @@ namespace ShopAppProject.Migrations
                     ProductTitle = table.Column<string>(type: "TEXT", nullable: true),
                     ProductDesc = table.Column<string>(type: "TEXT", nullable: true),
                     ProductSerial = table.Column<int>(type: "INTEGER", nullable: false),
-                    ProductPrice = table.Column<float>(type: "REAL", nullable: false)
+                    ProductPrice = table.Column<float>(type: "REAL", nullable: false),
+                    ProductImage = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

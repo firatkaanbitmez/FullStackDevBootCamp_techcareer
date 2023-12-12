@@ -1,3 +1,5 @@
+<!--Views/Product/Edit.cshtml-->
+
 @model Product
 
 <h2>Ürün Güncelle</h2>
@@ -19,6 +21,10 @@
     <div class="mb-3">
         <label asp-for="ProductPrice" class="form-label">Ürün Fiyatı</label>
         <input asp-for="ProductPrice" class="form-control">
+    </div>
+     <div class="mb-3">
+        <label asp-for="ProductImage" class="form-label">Ürün Resim Yolu veya URL</label>
+        <input asp-for="ProductImage" class="form-control">
     </div>
 
 

@@ -1,37 +1,50 @@
 <!--Views/Product/Index.cshtml-->
 @model IEnumerable<Product>
 
+<style>
+    .card-img-top {
+        max-height: 150px; 
+        max-width: 100%; 
+        width: auto; 
+        object-fit: contain;
+
+    }
+</style>
+
 <h2>Product Listesi</h2>
 <a href="/Product/Create" class="btn btn-primary">Product Ekle</a>
 <hr>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(m => m.ProductId)</th>
-            <th>@Html.DisplayNameFor(m => m.ProductTitle)</th>
-            <th>@Html.DisplayNameFor(m => m.ProductDesc)</th>
-             <th>@Html.DisplayNameFor(m => m.ProductSerial)</th>
-            <th>@Html.DisplayNameFor(m => m.ProductPrice)</th>
-            <th style="width: 150px;"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
 
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.ProductId)</td>
-                <td>@Html.DisplayFor(modelItem => item.ProductTitle)</td>
-                <td>@Html.DisplayFor(modelItem => item.ProductDesc)</td>
-                <td>@Html.DisplayFor(modelItem => item.ProductSerial)</td>
-                <td>@String.Format("{0:N2}", item.ProductPrice)</td>
-                <td>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                @if (!string.IsNullOrEmpty(item.ProductImage))
+                {
+                    <img src="@item.ProductImage" class="card-img-top" alt="Product Image">
+                }
+                else
+                {
+                    <img src="/img/defaultproduct.png" class="card-img-top" alt="Default Product Image">
+                }
+
+                <div class="card-body">
+                    <h5 class="card-title">Ürün Adı: @item.ProductTitle</h5>
+                    <p class="card-text">Ürün Açıklaması: @item.ProductDesc</p>
+                    <p class="card-text">Ürün Seri Numarası: @item.ProductSerial</p>
+                    <p class="card-text">Ürün Fiyatı: @String.Format("{0:N2}", item.ProductPrice) ₺</p>
+
                     <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId"
-                        class="btn btn-sm btn-primary">Edit</a>
-                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                       class="btn btn-sm btn-primary">Edit</a>
 
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    <!-- Delete bağlantısı eklendi -->
+                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('Bu ürünü silmek istediğinizden emin misiniz?')">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

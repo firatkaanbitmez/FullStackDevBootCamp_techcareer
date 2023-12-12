@@ -8,6 +8,7 @@ namespace ShopAppProject.Controllers
     public class ProductController : Controller
     {
 
+
         private readonly DataContext _context;
 
         public ProductController(DataContext context)
@@ -84,6 +85,39 @@ namespace ShopAppProject.Controllers
             return View(model);
 
         }
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Productler.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var product = await _context.Productler.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            _context.Productler.Remove(product);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+
+
 
     }
 }

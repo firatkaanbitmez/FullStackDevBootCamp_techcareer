@@ -83,6 +83,9 @@ namespace ShopAppProject.Migrations
                     b.Property<string>("ProductDesc")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ProductImage")
+                        .HasColumnType("TEXT");
+
                     b.Property<float>("ProductPrice")
                         .HasColumnType("REAL");
 

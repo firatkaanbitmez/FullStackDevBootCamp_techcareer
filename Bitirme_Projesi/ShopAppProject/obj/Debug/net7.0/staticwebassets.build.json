@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GYIVosKt+7jXd6hzD/ZD7ya4O/NnORQzVgG99iZ42kY=",
+  "Hash": "OFYGiqyyp7+G7GeTJkLhliN8NieXKwtfGg5kTWQtnuk=",
   "Source": "ShopAppProject",
   "BasePath": "_content/ShopAppProject",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\defaultproduct.png",
+      "SourceId": "ShopAppProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\",
+      "BasePath": "_content/ShopAppProject",
+      "RelativePath": "img/defaultproduct.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\defaultproduct.png"
     },
     {
       "Identity": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\logo.png",
