@@ -1,3 +1,4 @@
+//Data/DataContext.cs
 using Microsoft.EntityFrameworkCore;
 
 namespace ShopAppProject.Data
@@ -8,8 +9,12 @@ namespace ShopAppProject.Data
         {
 
         }
+
+        public DbSet<Product> Productler => Set<Product>();
         public DbSet<Kurs> Kurslar => Set<Kurs>();
         public DbSet<Customer> Customerler => Set<Customer>();
         public DbSet<KursKayit> KursKayitlari => Set<KursKayit>();
+
+
     }
 }

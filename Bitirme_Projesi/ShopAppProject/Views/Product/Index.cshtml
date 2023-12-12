@@ -1,0 +1,37 @@
+<!--Views/Product/Index.cshtml-->
+@model IEnumerable<Product>
+
+<h2>Product Listesi</h2>
+<a href="/Product/Create" class="btn btn-primary">Product Ekle</a>
+<hr>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.ProductId)</th>
+            <th>@Html.DisplayNameFor(m => m.ProductTitle)</th>
+            <th>@Html.DisplayNameFor(m => m.ProductDesc)</th>
+             <th>@Html.DisplayNameFor(m => m.ProductSerial)</th>
+            <th>@Html.DisplayNameFor(m => m.ProductPrice)</th>
+            <th style="width: 150px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ProductId)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductTitle)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductDesc)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductSerial)</td>
+                <td>@String.Format("{0:N2}", item.ProductPrice)</td>
+                <td>
+                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId"
+                        class="btn btn-sm btn-primary">Edit</a>
+                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

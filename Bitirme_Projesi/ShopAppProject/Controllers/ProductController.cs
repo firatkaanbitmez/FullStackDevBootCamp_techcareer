@@ -1,16 +1,16 @@
-//Controllers/CustomerControllers.cs
+//Controllers/ProductControllers.cs
 using ShopAppProject.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ShopAppProject.Controllers
 {
-    public class CustomerController : Controller
+    public class ProductController : Controller
     {
 
         private readonly DataContext _context;
 
-        public CustomerController(DataContext context)
+        public ProductController(DataContext context)
         {
             _context = context;
         }
@@ -18,7 +18,7 @@ namespace ShopAppProject.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customerler.ToListAsync());
+            return View(await _context.Productler.ToListAsync());
         }
 
         public IActionResult Create()
@@ -27,9 +27,9 @@ namespace ShopAppProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Customer model)
+        public async Task<IActionResult> Create(Product model)
         {
-            _context.Customerler.Add(model);
+            _context.Productler.Add(model);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
@@ -41,8 +41,8 @@ namespace ShopAppProject.Controllers
                 return NotFound();
             }
 
-            var ogr = await _context.Customerler.FindAsync(id);
-            //var ogr = await _context.Customerler.FirstOrDefaultAsync(o => o.CustomerId == id);
+            var ogr = await _context.Productler.FindAsync(id);
+            //var ogr = await _context.Productler.FirstOrDefaultAsync(o => o.ProductId == id);
 
             if (ogr == null)
             {
@@ -53,10 +53,10 @@ namespace ShopAppProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int? id, Customer model)
+        public async Task<IActionResult> Edit(int? id, Product model)
         {
 
-            if (id != model.CustomerId)
+            if (id != model.ProductId)
             {
                 return NotFound();
             }
@@ -69,7 +69,7 @@ namespace ShopAppProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!_context.Customerler.Any(o => o.CustomerId == model.CustomerId))
+                    if (!_context.Productler.Any(o => o.ProductId == model.ProductId))
                     {
                         return NotFound();
                     }

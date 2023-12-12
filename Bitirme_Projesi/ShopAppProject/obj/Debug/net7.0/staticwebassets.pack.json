@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\ShopAppProject.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\css\\home.css",
+      "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\css\\layout.css",
+      "PackagePath": "staticwebassets\\css\\layout.css"
+    },
+    {
       "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

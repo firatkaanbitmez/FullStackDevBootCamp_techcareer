@@ -1,0 +1,27 @@
+@model Product
+
+<h2>Ürün Güncelle</h2>
+
+<form asp-controller="Product" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="ProductId">
+   <div class="mb-3">
+        <label asp-for="ProductTitle" class="form-label">Ürün İsmi</label>
+        <input asp-for="ProductTitle" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="ProductDesc" class="form-label">Ürün Açıklaması</label>
+        <input asp-for="ProductDesc" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="ProductSerial" class="form-label">Ürün Seri Numarası</label>
+        <input asp-for="ProductSerial" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="ProductPrice" class="form-label">Ürün Fiyatı</label>
+        <input asp-for="ProductPrice" class="form-control">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+</form>

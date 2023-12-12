@@ -1,3 +1,4 @@
+//Data/Customer.cs
 using System.ComponentModel.DataAnnotations;
 
 namespace ShopAppProject.Data

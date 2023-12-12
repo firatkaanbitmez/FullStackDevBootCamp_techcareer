@@ -54,6 +54,22 @@ namespace ShopAppProject.Migrations
                 {
                     table.PrimaryKey("PK_Kurslar", x => x.KursId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Productler",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ProductTitle = table.Column<string>(type: "TEXT", nullable: true),
+                    ProductDesc = table.Column<string>(type: "TEXT", nullable: true),
+                    ProductSerial = table.Column<int>(type: "INTEGER", nullable: false),
+                    ProductPrice = table.Column<float>(type: "REAL", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Productler", x => x.ProductId);
+                });
         }
 
         /// <inheritdoc />
@@ -67,6 +83,9 @@ namespace ShopAppProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "Kurslar");
+
+            migrationBuilder.DropTable(
+                name: "Productler");
         }
     }
 }

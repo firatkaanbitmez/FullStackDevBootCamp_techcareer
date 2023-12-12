@@ -73,6 +73,29 @@ namespace ShopAppProject.Migrations
 
                     b.ToTable("KursKayitlari");
                 });
+
+            modelBuilder.Entity("ShopAppProject.Data.Product", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ProductDesc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<float>("ProductPrice")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("ProductSerial")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ProductTitle")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("Productler");
+                });
 #pragma warning restore 612, 618
         }
     }
