@@ -1,0 +1,8 @@
+<!--Views/Account/RegisterSucces.cshtml-->
+@{
+    ViewData["Title"] = "Registration Successful";
+    var userEmail = TempData["UserEmail"] as string;
+}
+
+<h2>Registration Successful</h2>
+<p>Congratulations! You have successfully registered with the email address: @userEmail</p>

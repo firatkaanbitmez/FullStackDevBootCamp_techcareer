@@ -1,9 +1,7 @@
-//Controllers/AccountController.cs
 using BootcampEf.Data;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Threading.Tasks;
 
 namespace BootcampEf.Controllers
 {
@@ -13,8 +11,8 @@ namespace BootcampEf.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         public AccountController(
-        UserManager<ApplicationUser> userManager,
-        SignInManager<ApplicationUser> signInManager)
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -37,7 +35,11 @@ namespace BootcampEf.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+
+                    // Kullanıcının e-posta adresini TempData'ya ekleyerek RegisterSuccess sayfasına iletiyoruz.
+                    TempData["UserEmail"] = user.Email;
+
+                    return RedirectToAction("RegisterSuccess");
                 }
 
                 foreach (var error in result.Errors)
@@ -47,6 +49,19 @@ namespace BootcampEf.Controllers
             }
 
             return View(model);
+        }
+
+
+        [HttpGet]
+        public IActionResult RegisterSuccess()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult RegisterError()
+        {
+            return View();
         }
 
         [HttpGet]
@@ -73,12 +88,18 @@ namespace BootcampEf.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Logout()
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LogoutConfirmed()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
     }
-
-
 }
