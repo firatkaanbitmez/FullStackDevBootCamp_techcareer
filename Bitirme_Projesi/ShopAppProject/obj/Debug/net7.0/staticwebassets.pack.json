@@ -5,12 +5,76 @@
       "PackagePath": "staticwebassets\\ShopAppProject.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\css\\home.css",
+      "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\css\\layout.css",
+      "PackagePath": "staticwebassets\\css\\layout.css"
+    },
+    {
       "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\defaultproduct.png",
+      "PackagePath": "staticwebassets\\img\\defaultproduct.png"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\product1.jpg",
+      "PackagePath": "staticwebassets\\img\\product1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\product2.jpg",
+      "PackagePath": "staticwebassets\\img\\product2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\product3.jpg",
+      "PackagePath": "staticwebassets\\img\\product3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\product4.jpg",
+      "PackagePath": "staticwebassets\\img\\product4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\sanaözel1.jpg",
+      "PackagePath": "staticwebassets\\img\\sanaözel1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\sanaözel2.jpg",
+      "PackagePath": "staticwebassets\\img\\sanaözel2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\süperteklif.jpg",
+      "PackagePath": "staticwebassets\\img\\süperteklif.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\tv1.jpg",
+      "PackagePath": "staticwebassets\\img\\tv1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\tv2.jpg",
+      "PackagePath": "staticwebassets\\img\\tv2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\tv3.jpg",
+      "PackagePath": "staticwebassets\\img\\tv3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\tv4.jpg",
+      "PackagePath": "staticwebassets\\img\\tv4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\img\\yeniyil.jpg",
+      "PackagePath": "staticwebassets\\img\\yeniyil.jpg"
     },
     {
       "Id": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\js\\site.js",
