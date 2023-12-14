@@ -5,7 +5,13 @@ namespace ShopAppProject.Data
 {
     public class ApplicationUser : IdentityUser
     {
-        // Bu sınıf, kullanıcıyla ilgili özel özellikleri veya metotları içerebilir.
-        // Özel özellikler veya metotlar eklemek için bu sınıfı genişletebilirsiniz.
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+
+        public string? Address { get; set; }
+        public string? PhoneNumber { get; set; }
+
+        public string? FullName => $"{FirstName} {LastName}";
+
     }
 }

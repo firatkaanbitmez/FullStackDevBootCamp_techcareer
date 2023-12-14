@@ -18,6 +18,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\FIRAT\Desktop\Project-File\FullStackDevBootCamp\Bitirme_Projesi\ShopAppProject
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/ShopAppProject/Views/Account/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/ShopAppProject/Views/Account/ChangePasswordSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZFN1Y2Nlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/ShopAppProject/Views/Account/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/ShopAppProject/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/ShopAppProject/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

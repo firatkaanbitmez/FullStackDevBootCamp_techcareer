@@ -158,51 +158,74 @@ namespace ShopAppProject.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
+
         public IActionResult Order(int id)
         {
-            AddToCart(id);
+            int cartItemCount = AddToCart(id);
 
-            return RedirectToAction("Index", "Cart");
-        }
-
-        private void AddToCart(int productId)
-        {
-            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            // Check if the item already exists in the cart
-            var existingCartItem = _context.CartItems
-                .FirstOrDefault(c => c.ProductId == productId && c.UserId == userId);
-
-            if (existingCartItem != null)
+            if (cartItemCount != -1)
             {
-                // If the item exists, increment the quantity
-                existingCartItem.Quantity += 1;
+                // Product added to cart successfully
+                TempData["CartItemCount"] = cartItemCount;
             }
             else
             {
-                // If the item doesn't exist, create a new cart item
-                var newCartItem = new CartItem
-                {
-                    ProductId = productId,
-                    UserId = userId,
-                    Quantity = 1 // Set the initial quantity to 1
-                };
+                // Failed to add product to cart
 
-                _context.CartItems.Add(newCartItem);
             }
+
+            return RedirectToAction("Index");
+        }
+        private void UpdateCartItemCountInSession()
+        {
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var cartItemCount = _context.CartItems.Count(c => c.UserId == userId);
+
+            // Store the cart item count in session
+            HttpContext.Session.SetInt32("CartItemCount", cartItemCount);
+        }
+
+        private int AddToCart(int productId)
+        {
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             try
             {
+                // Check if the item already exists in the cart
+                var existingCartItem = _context.CartItems
+                    .FirstOrDefault(c => c.ProductId == productId && c.UserId == userId);
+
+                if (existingCartItem != null)
+                {
+                    // If the item exists, increment the quantity
+                    existingCartItem.Quantity += 1;
+                }
+                else
+                {
+                    // If the item doesn't exist, create a new cart item
+                    var newCartItem = new CartItem
+                    {
+                        ProductId = productId,
+                        UserId = userId,
+                        Quantity = 1 // Set the initial quantity to 1
+                    };
+
+                    _context.CartItems.Add(newCartItem);
+                }
+
                 _context.SaveChanges();
+
+                // Return the updated cart item count
+                return _context.CartItems.Count(c => c.UserId == userId);
             }
             catch (Exception ex)
             {
                 // Log or handle the exception
-                Console.WriteLine($"Error saving changes: {ex.Message}");
+                Console.WriteLine($"Error adding to cart: {ex.Message}");
+                return -1; // Operation failed
             }
-
         }
+
 
     }
 }

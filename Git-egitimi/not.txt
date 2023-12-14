@@ -1,0 +1,55 @@
+https://git-scm.com
+
+Yüklerken Editör Vscode seçebilirsiniz. Default olarak gelen Vim' editörü zor.
+
+
+cd Desktop
+mkdir gitProject    
+cd gitProject
+
+touch deneme.txt
+
+git config --global user.name "firatkaanbitmez"
+git config --global user.mail "firatbitmez@gmail.com"
+
+git status   //Git projede var mı bakıyoruz
+
+git init  //Giti projeye dahil ediyoruz.
+
+
+git add . //Bütün dosyaları Yükle
+
+git commit 
+yazınca sayfa değişecek commit mesajımızı yazıp :wq basıp commitimizi commitizi kaydediyoruz
+
+git commit m "Mesajımız"
+
+git log   // atılan commitleri ve işlemleri takip etmemize yarıyor
+
+
+touch .gitignore    //ile gitignore oluşturuldu
+
+gitignore içine kimsenin takip etmesini istediğimizi dosyları yazıyoruz örneğin gizli.txt dosyasının adını .gitignore içine yazdığımızda gizli.txt i almıyor o dosyayı dışlıyor
+
+
+git branch
+
+git branch İSİM       //isim yazan yere direk yazarak yeni branch oluşturabiliyoruz
+
+git switch master // branch değiştiriyoruz
+
+
+git merge İSİM   // iki branche ayırdığımız projeyi yani iki branch i birleştirmek için kullanıyoruz.
+
+
+git restore . 
+
+git stash // geçiçi depolama alanına alıyor
+
+git stash pop // geçiçi depolamaya atılan kodlar geri gelir.
+
+git checkout COMMITINHASHCODUBIRAYA YAZ     // projede geri dönmek için
+
+git reset  GERİDÖNMEKİSTEDİĞİMİZHASH //hashini yazdığımız commite geri döneriz.
+git reset --hard GERİDÖNMEKİSTEDİĞİMİZHASH //geri dönerken döndüğümüz commiten sonrakiler yok olur.
+

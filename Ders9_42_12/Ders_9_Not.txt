@@ -1,0 +1,8 @@
+https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli
+
+
+dotnet ef migrations add AddTableOgretmen   // Migrationsda yein tablo eklediğimizde yeni tabloyu migrostiona ekleme
+
+dotnet ef database update dediğimizde daha önce databasede verilermiz olduğu için hata verir. 
+dotnet ef migrations remove diyerek var olan migrationı silip
+dotnet ef migrations add AddTableOgretmen  tablomuzu şimdi ekleyip update edebiliriz.

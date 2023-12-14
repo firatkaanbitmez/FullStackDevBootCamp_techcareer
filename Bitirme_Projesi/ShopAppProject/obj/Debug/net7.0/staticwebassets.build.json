@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OFYGiqyyp7+G7GeTJkLhliN8NieXKwtfGg5kTWQtnuk=",
+  "Hash": "e3xkQ/QoDpGzfsccdy7Cc3iUEOdNDO6+f7FQYnkauEg=",
   "Source": "ShopAppProject",
   "BasePath": "_content/ShopAppProject",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ShopAppProject.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\css\\account.css",
+      "SourceId": "ShopAppProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\",
+      "BasePath": "_content/ShopAppProject",
+      "RelativePath": "css/account.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\account.css"
     },
     {
       "Identity": "C:\\Users\\FIRAT\\Desktop\\Project-File\\FullStackDevBootCamp\\Bitirme_Projesi\\ShopAppProject\\wwwroot\\css\\home.css",

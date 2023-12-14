@@ -2,29 +2,40 @@
 
 @model List<Order>
 
+@{
+    // Order the Model by OrderDate in descending order
+    var sortedOrders = Model.OrderByDescending(o => o.OrderDate).ToList();
+}
 
-<h2>Siparişlerim</h2>
+<div class="container mt-4">
+    <h2>Siparişlerim / Takip</h2>
+    <hr>
 
-<table>
-    <thead>
-        <tr>
-            <th>Sipariş ID</th>
-            <th>Ürün ID</th>
-            <th>Adet</th>
-            <th>Sipariş Tarihi</th>
-            <!-- Add other columns as needed -->
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var order in Model)
-        {
-            <tr>
-                <td>@order.Id</td>
-                <td>@order.ProductId</td>
-                <td>@order.Quantity</td>
-                <td>@order.OrderDate</td>
-                <!-- Add other columns as needed -->
-            </tr>
-        }
-    </tbody>
-</table>
+    <!-- Loop through sorted orders -->
+    @foreach (var order in sortedOrders)
+    {
+        <div class="card mb-3">
+            <div class="card-header bg-primary text-white">
+                Sipariş ID: @order.Id
+            </div>
+            <div class="card-body">
+                <h6 class="card-title">Takip Numarası: @order.Id</h6>
+                <p class="card-text"><strong>Toplam Ürün Adedi:</strong> @order.Quantity</p>
+                <p class="card-text"><strong>Sipariş Tarihi:</strong> @order.OrderDate.ToString("dd/MM/yyyy HH:mm:ss")</p>
+                <!-- Add more order details as needed -->
+
+                <hr>
+
+                <!-- Link to view product details or track shipment -->
+                <a href="@Url.Action("Details", "Order", new { id = order.ProductId })" class="btn btn-info" data-abc="true">
+                    <i class="fa fa-eye"></i> Sipariş Detayları
+                </a>
+            </div>
+        </div>
+    }
+
+    <!-- Link to go back to shopping -->
+    <a href="@Url.Action("Index", "Product")" class="btn btn-warning" data-abc="true">
+        <i class="fa fa-chevron-left"></i> Alışverişe Geri Dön
+    </a>
+</div>

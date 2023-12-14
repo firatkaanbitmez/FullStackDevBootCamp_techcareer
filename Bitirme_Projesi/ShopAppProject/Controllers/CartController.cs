@@ -30,9 +30,13 @@ namespace ShopAppProject.Controllers
                 CartItems = cartItems,
                 TotalAmount = totalAmount
             };
+            TempData["CartItemCount"] = cartItems.Count;
+            Console.WriteLine($"TempData[\"CartItemCount\"] = {TempData["CartItemCount"]}");
+
 
             return View(viewModel);
         }
+
         private List<CartItem> GetCartItems()
         {
             var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);

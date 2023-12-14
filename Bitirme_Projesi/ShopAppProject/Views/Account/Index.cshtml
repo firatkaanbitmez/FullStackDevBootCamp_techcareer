@@ -1,0 +1,79 @@
+@model ShopAppProject.Data.ApplicationUser
+
+@{
+    ViewData["Title"] = "Hesabım";
+}
+
+ <link rel="stylesheet" href="~/css/account.css" asp-append-version="true" />
+
+<div class="wrapper bg-white mt-sm-5">
+    <h4 class="pb-4 border-bottom" readonly onmousedown="return false;" style="cursor: default;">Hesap Ayarları</h4>
+    <div class="d-flex align-items-start py-3 border-bottom">
+        <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            class="img" alt="">
+        <div class="pl-sm-4 pl-2" id="img-section">
+            <b>Profil Fotoğrafı</b>
+            <p>1MB'dan az .png .jpg </p>
+            <button class="btn button border"><b>Upload</b></button>
+        </div>
+    </div>
+    <div class="py-2">
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="firstname">Ad</label>
+               <input type="text" class="bg-light form-control" value="@Model.FirstName" readonly onmousedown="return false;"style="cursor: default;">
+
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3">
+                <label for="lastname">Soyad</label>
+<input type="text" class="bg-light form-control" value="@Model.LastName" readonly onmousedown="return false;"style="cursor: default;">
+            </div>
+        </div>
+        <div class="row py-2">
+          <div class="col-md-6">
+    <label for="email">Email Adres <span style="color: red;">Değiştirilemez</span></label>
+    <input type="text" class="bg-light form-control" value="@Model.UserName" readonly onmousedown="return false;" style="cursor: default;">
+</div>
+
+            <div class="col-md-6 pt-md-0 pt-3">
+                <label for="phone">Telefon Numarası</label>
+<input type="text" class="bg-light form-control" value="@Model.PhoneNumber" readonly onmousedown="return false;" style="cursor: default;">
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="country">Şehir</label>
+                <select name="country" id="country" class="bg-light">
+                    <option value="india" selected>Samsun</option>
+                    <option value="india" selected>İstanbul</option>
+                    <!-- Add options for other countries if needed -->
+                </select>
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3" id="lang">
+                <label for="language">Role</label>
+                <div class="arrow">
+                    <select name="language" id="language" class="bg-light">
+                        <option value="english" selected>Seller</option>
+                        <option value="english" selected>Customer</option>
+                        <!-- Add options for other languages if needed -->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="py-3 pb-4 border-bottom">
+            <a class="btn btn-primary mr-3" asp-action="Edit">Bilgilerimi Güncelle</a>
+            <a class="btn border button" asp-action="ChangePassword">Şifre Değiştir</a>
+
+          
+        </div>
+        <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+            <div>
+               <b>Hesabı Sil</b>
+                <p>Silinen Hesaplar Tekrar Aktif Edilemez!</p>
+            </div>
+            <div class="ml-auto">
+                <button class="btn danger">Sil</button>
+            </div>
+        </div>
+    </div>
+</div>

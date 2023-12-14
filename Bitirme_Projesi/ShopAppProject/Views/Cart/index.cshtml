@@ -32,7 +32,7 @@
     }
 </style>
 
-<h2>Sepetim (@Model.CartItems.Count)</h2>
+<h2>Sepetim (<span id="cartItemCount">@Model.CartItems.Count</span>)</h2>
 
 @if (Model.CartItems.Count == 0)
 {
@@ -65,7 +65,6 @@ else
 }
 
 }
-
 <script>
     function changeQuantity(productId, change) {
         var quantityElement = document.getElementById("quantity_" + productId);

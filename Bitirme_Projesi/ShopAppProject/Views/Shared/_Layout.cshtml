@@ -12,6 +12,41 @@
     <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ShopAppProject.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+      .btn-logout {
+        background-color: #dc3545; /* Red color for logout button */
+        color: #fff; /* White text color */
+        padding: 8px 16px; /* Adjust padding as needed */
+        border-radius: 4px; /* Optional: Rounded corners */
+        transition: background-color 0.3s ease; /* Smooth transition on hover */
+        min-width: 200px;
+    }
+
+    .btn-logout:hover {
+        background-color: #c82333; /* Darker red on hover */
+    }
+    /* Dropdown menu style */
+    .dropdown-menu-custom {
+        background-color: #ffffff; /* Main background color (Blue) */
+        border: 1px solid #ffffff; /* Border color (Darker Blue) */
+        color: #fff; /* Text color (White) */
+    }
+
+
+    /* Logout button style */
+    .btn-logout-custom {
+        background-color: #e74c3c; /* Button background color (Red) */
+        border-color: #c0392b; /* Button border color (Darker Red) */
+        color: #fff; /* Button text color (White) */
+    }
+
+    /* Hover effect for logout button */
+    .btn-logout-custom:hover {
+        background-color: #c0392b; /* Hover background color (Darker Red) */
+        border-color: #922b21; /* Hover border color (Dark Red) */
+        color: #fff; /* Hover text color (White) */
+    }
+    </style>
 
 </head>
 
@@ -39,54 +74,60 @@
                         <input class="form-control mr-sm-2" type="search" placeholder="Ürün, kategori veya marka ara" aria-label="Search">
                     </form>
                 </div>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-center" asp-area="" asp-controller="Home" asp-action="Index">
-                                <br /><i class="fas fa-home fa-2x mr-2"></i> Ana Sayfa
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-center" asp-area="" asp-controller="Order" asp-action="Index">
-                                <br /><i class="fas fa-shopping-bag fa-2x mr-2"></i> Siparişlerim
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-center" asp-area="" asp-controller="Account" asp-action="Index">
-                                <br /><i class="fas fa-user fa-2x mr-2"></i> Hesabım
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-center" asp-area="" asp-controller="Cart" asp-action="Index">
-                                <br /><i class="fas fa-shopping-cart fa-2x mr-2"></i> Sepetim
-                            </a>
-                        </li>
+                    
                        
-                    </ul>
-                      @if (User.Identity.IsAuthenticated)
-                    {
-                        <div class="navbar-nav">
-                            <span class="navbar-text mr-2">
-                                Hello, @User.Identity.Name!
-                            </span>
-                            <a class="btn btn-danger" asp-controller="Account" asp-action="Logout">Logout</a>
-                        </div>
-                    }
-                    else
-                    {
-                       <div class="navbar-nav">
-                          <a class="btn btn-outline-primary mr-2" href="~/Account/Login">
-                              <i class="fas fa-sign-in-alt"></i> Login
-                          </a>
-                          <a class="btn btn-primary" href="~/Account/Register">
-                              <i class="fas fa-user-plus"></i> Register
-                          </a>
-                      </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="navbar-nav nav-item">
+                              <span class="navbar-text mr-2">
+                                  <div class="btn-group">
+                                      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          <i class="fas fa-user"></i> @(User.Identity?.Name!)
+                                      </button>
 
-                    }
-                </div>
-               
-            </div>
-            
+                                      <ul class="dropdown-menu dropdown-menu-custom" style="min-width: 200px;">
+                                          <li><a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Index">Siparişlerim</a></li>
+                                          <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Index">Hesabım</a></li>
+                                          
+                                          <!-- Modify this part for the Cart icon and link -->
+                                          
+                                          
+                                          <li>
+                                              @if (User.Identity.IsAuthenticated)
+                                              {
+                                                  <a class="btn btn-danger btn-logout" asp-controller="Account" asp-action="Logout">Logout</a>
+                                              }
+                                          </li>
+                                      </ul>
+                                      <li>
+                                              <a class="dropdown-item" asp-area="" asp-controller="Cart" asp-action="Index">
+                                                  <i class="fas fa-shopping-cart fa-2x"></i> 
+                                                  @if (TempData.ContainsKey("CartItemCount"))
+                                                  {
+                                                      <span style="color: red; font-size: 18px; font-weight: bold;" class="badge badge-pill badge-danger">@TempData["CartItemCount"]</span>
+                                                  }
+                                              </a>
+                                          
+                                  </div>
+                              </span>
+                          </div>
+
+                        }
+
+                        else
+                        {
+                            <div class="navbar-nav">
+                                <a class="btn btn-outline-primary mr-2" href="~/Account/Login">
+                                    <i class="fas fa-sign-in-alt"></i> Login
+                                </a>
+                                <a class="btn btn-primary" href="~/Account/Register">
+                                    <i class="fas fa-user-plus"></i> Register
+                                </a>
+                            </div>
+                        }
+                 
+                </div>               
+            </div>            
         </nav>
 
 
@@ -160,6 +201,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
