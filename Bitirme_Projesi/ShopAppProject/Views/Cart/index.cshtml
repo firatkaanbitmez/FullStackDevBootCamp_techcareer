@@ -1,0 +1,122 @@
+@model CartViewModel
+
+<style>
+    .cart-item {
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .product-title {
+        font-weight: bold;
+    }
+
+    .remove-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .quantity-input {
+        width: 40px;
+    }
+
+    .quantity-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 2px 5px;
+        cursor: pointer;
+    }
+</style>
+
+<h2>Sepetim (@Model.CartItems.Count)</h2>
+
+@if (Model.CartItems.Count == 0)
+{
+    <p>Sepetiniz boş.</p>
+}
+else
+{
+    @foreach (var item in Model.CartItems)
+    {
+        <div class="cart-item">
+            <div class="product-title">@item.Product.ProductTitle</div>
+            <div>Fiyat: @item.Product.ProductPrice</div>
+            <div>Adet: <span id="quantity_@item.Product.ProductId">@item.Quantity</span>
+                <button onclick="changeQuantity(@item.Product.ProductId, -1)" class="quantity-btn">-</button>
+                <button onclick="changeQuantity(@item.Product.ProductId, 1)" class="quantity-btn">+</button>
+            </div>
+            <div>Toplam Fiyat: @(item.Product.ProductPrice * item.Quantity)</div>
+            <form asp-controller="Cart" asp-action="Remove" method="post">
+                <input type="hidden" name="productId" value="@item.Product.ProductId" />
+                <button type="submit" class="remove-btn">Sil</button>
+            </form>
+        </div>
+    }
+    <h3>Sipariş Özeti</h3>
+    <div>Sipariş Tutarı (Toplam @Model.CartItems.Count adet): @Model.TotalAmount TL</div>
+    <div>Toplam Tutar: @Model.TotalAmount TL</div>
+    @if (Model.CartItems.Count > 0)
+{
+    <button onclick="placeOrder()" class="btn btn-primary">Sipariş Ver</button>
+}
+
+}
+
+<script>
+    function changeQuantity(productId, change) {
+        var quantityElement = document.getElementById("quantity_" + productId);
+        var currentQuantity = parseInt(quantityElement.innerText);
+
+        // Ensure the quantity is greater than 0 when decreasing
+        if (currentQuantity + change > 0) {
+            var newQuantity = currentQuantity + change;
+            quantityElement.innerText = newQuantity;
+
+            // Perform AJAX request to update the server-side data
+            updateServerQuantity(productId, newQuantity);
+        }
+    }
+
+    function updateServerQuantity(productId, newQuantity) {
+        // Make an AJAX request to update the server-side quantity
+        fetch(`/Cart/UpdateQuantity?productId=${productId}&newQuantity=${newQuantity}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response if needed
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+     function placeOrder() {
+        // Make an AJAX request to place the order
+        fetch(`/Cart/PlaceOrder`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response if needed
+            console.log(data);
+
+            // Optionally, redirect to the orders page after placing the order
+            window.location.href = '/Order';
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+</script>

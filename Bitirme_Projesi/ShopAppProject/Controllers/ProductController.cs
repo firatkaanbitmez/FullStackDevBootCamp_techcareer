@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShopAppProject.Controllers
 {
-    [Authorize] // Requires authentication for all actions in this controller
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly DataContext _context;
@@ -35,7 +35,7 @@ namespace ShopAppProject.Controllers
         public async Task<IActionResult> Create(Product model)
         {
             // Get the current user ID
-            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = HttpContext.User?.FindFirstValue(ClaimTypes.NameIdentifier);
 
             // Set the user ID for the product
             model.UserId = userId;
@@ -157,5 +157,52 @@ namespace ShopAppProject.Controllers
             // Redirect to the Index action after the product has been deleted
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Order(int id)
+        {
+            AddToCart(id);
+
+            return RedirectToAction("Index", "Cart");
+        }
+
+        private void AddToCart(int productId)
+        {
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // Check if the item already exists in the cart
+            var existingCartItem = _context.CartItems
+                .FirstOrDefault(c => c.ProductId == productId && c.UserId == userId);
+
+            if (existingCartItem != null)
+            {
+                // If the item exists, increment the quantity
+                existingCartItem.Quantity += 1;
+            }
+            else
+            {
+                // If the item doesn't exist, create a new cart item
+                var newCartItem = new CartItem
+                {
+                    ProductId = productId,
+                    UserId = userId,
+                    Quantity = 1 // Set the initial quantity to 1
+                };
+
+                _context.CartItems.Add(newCartItem);
+            }
+
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception
+                Console.WriteLine($"Error saving changes: {ex.Message}");
+            }
+
+        }
+
     }
 }

@@ -68,15 +68,20 @@
                             <span class="navbar-text mr-2">
                                 Hello, @User.Identity.Name!
                             </span>
-                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Logout">Logout</a>
+                            <a class="btn btn-danger" asp-controller="Account" asp-action="Logout">Logout</a>
                         </div>
                     }
                     else
                     {
-                        <div class="navbar-nav">
-                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
-                            <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Register</a>
-                        </div>
+                       <div class="navbar-nav">
+                          <a class="btn btn-outline-primary mr-2" href="~/Account/Login">
+                              <i class="fas fa-sign-in-alt"></i> Login
+                          </a>
+                          <a class="btn btn-primary" href="~/Account/Register">
+                              <i class="fas fa-user-plus"></i> Register
+                          </a>
+                      </div>
+
                     }
                 </div>
                

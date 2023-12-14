@@ -1,0 +1,30 @@
+<!-- Views/Order/Index.cshtml -->
+
+@model List<Order>
+
+
+<h2>Siparişlerim</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Sipariş ID</th>
+            <th>Ürün ID</th>
+            <th>Adet</th>
+            <th>Sipariş Tarihi</th>
+            <!-- Add other columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.ProductId</td>
+                <td>@order.Quantity</td>
+                <td>@order.OrderDate</td>
+                <!-- Add other columns as needed -->
+            </tr>
+        }
+    </tbody>
+</table>

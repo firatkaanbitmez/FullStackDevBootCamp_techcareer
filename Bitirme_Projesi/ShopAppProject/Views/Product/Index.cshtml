@@ -1,4 +1,5 @@
 <!--Views/Product/Index.cshtml-->
+@using System.Security.Claims
 @model IEnumerable<Product>
 
 <style>
@@ -9,10 +10,16 @@
         object-fit: contain;
 
     }
+   
+
 </style>
 
+
 <h2>Product Listesi</h2>
-<a href="/Product/Create" class="btn btn-primary">Product Ekle</a>
+@if (User.Identity.IsAuthenticated)
+{
+    <a href="/Product/Create" class="btn btn-primary">Product Ekle</a>
+}
 <hr>
 
 
@@ -35,16 +42,29 @@
                     <p class="card-text">Ürün Açıklaması: @item.ProductDesc</p>
                     <p class="card-text">Ürün Seri Numarası: @item.ProductSerial</p>
                     <p class="card-text">Ürün Fiyatı: @String.Format("{0:N2}", item.ProductPrice) ₺</p>
+                    
 
-                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId"
-                       class="btn btn-sm btn-primary">Edit</a>
-
-                    <!-- Delete bağlantısı eklendi -->
-                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId"
-                       class="btn btn-sm btn-danger"
-                       onclick="return confirm('Bu ürünü silmek istediğinizden emin misiniz?')">Delete</a>
+                     @if (User.Identity.IsAuthenticated && item.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier))
+                    {
+                       
+                        <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger" onclick="return confirm('Bu ürünü silmek istediğinizden emin misiniz?')">Delete</a>
+                    }
+                    <hr>
+               <div class="mt-3 text-end">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-controller="Product" asp-action="Order" asp-route-id="@item.ProductId" class="btn btn-primary">Sepete Ekle</a>
+                }
+                else
+                {
+                    <a href="/Account/Login" class="btn btn-primary">Sepete Ekle</a>
+                }
+            </div>                 
                 </div>
+                
             </div>
+            
         </div>
     }
 </div>

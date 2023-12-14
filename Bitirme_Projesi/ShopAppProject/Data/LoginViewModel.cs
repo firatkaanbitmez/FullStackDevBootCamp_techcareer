@@ -1,4 +1,4 @@
-//Data/LoginViewModel.cs
+//Data/CartViewModel.cs
 using System.ComponentModel.DataAnnotations;
 
 namespace ShopAppProject.Data

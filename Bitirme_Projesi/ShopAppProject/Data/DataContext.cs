@@ -30,5 +30,9 @@ namespace ShopAppProject.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Product> Productler => Set<Product>();
 
+        public DbSet<CartItem> CartItems { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
     }
 }
