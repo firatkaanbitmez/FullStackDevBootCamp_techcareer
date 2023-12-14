@@ -162,9 +162,11 @@ namespace ShopAppProject.Migrations
                 {
                     ProductId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ProductName = table.Column<string>(type: "TEXT", nullable: true),
+                    ProductTitle = table.Column<string>(type: "TEXT", nullable: true),
                     ProductDesc = table.Column<string>(type: "TEXT", nullable: true),
-                    ProductPrice = table.Column<string>(type: "TEXT", nullable: true),
+                    ProductSerial = table.Column<int>(type: "INTEGER", nullable: false),
+                    ProductPrice = table.Column<float>(type: "REAL", nullable: false),
+                    ProductImage = table.Column<string>(type: "TEXT", nullable: true),
                     UserId = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>

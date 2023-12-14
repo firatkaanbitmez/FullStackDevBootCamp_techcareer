@@ -218,10 +218,16 @@ namespace ShopAppProject.Migrations
                     b.Property<string>("ProductDesc")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ProductName")
+                    b.Property<string>("ProductImage")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ProductPrice")
+                    b.Property<float>("ProductPrice")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("ProductSerial")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ProductTitle")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UserId")

@@ -2,23 +2,28 @@
 <!--Views/Product/Create.cshtml-->
 @model Product
 
-<h2>Product Ekle</h2>
-<hr>
 <form asp-controller="Product" asp-action="Create" method="post">
     <div class="mb-3">
-        <label asp-for="ProductName" class="form-label">Product Adı</label>
-        <input asp-for="ProductName" class="form-control">
+        <label asp-for="ProductTitle" class="form-label">Ürün İsmi</label>
+        <input asp-for="ProductTitle" class="form-control">
     </div>
- 
     <div class="mb-3">
-        <label asp-for="ProductDesc" class="form-label">ProductDesc</label>
+        <label asp-for="ProductDesc" class="form-label">Ürün Açıklaması</label>
         <input asp-for="ProductDesc" class="form-control">
     </div>
     <div class="mb-3">
-        <label asp-for="ProductPrice" class="form-label">ProductPrice</label>
-        <input asp-for="ProductPrice" class="form-control">
+        <label asp-for="ProductSerial" class="form-label">Ürün Seri Numarası</label>
+        <input asp-for="ProductSerial" class="form-control">
+    </div>
+     <div class="mb-3">
+        <label asp-for="ProductPrice" class="form-label">Ürün Fiyatı</label>
+        <input asp-for="ProductPrice" class="form-control" step="0.01" />
+    </div>
+      <div class="mb-3">
+        <label asp-for="ProductImage" class="form-label">Ürün Resim Yolu veya URL</label>
+        <input asp-for="ProductImage" class="form-control">
     </div>
 
-    <button type="submit" class="btn btn-secondary">Kaydet</button>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
 
 </form>

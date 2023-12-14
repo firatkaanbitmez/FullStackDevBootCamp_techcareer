@@ -102,9 +102,11 @@ namespace ShopAppProject.Controllers
                 return NotFound();
             }
 
-            existingProduct.ProductName = model.ProductName;
+            existingProduct.ProductTitle = model.ProductTitle;
+            existingProduct.ProductDesc = model.ProductDesc;
+            existingProduct.ProductSerial = model.ProductSerial;
             existingProduct.ProductPrice = model.ProductPrice;
-            existingProduct.ProductDesc = model.ProductDesc; // Ensure ProductDesc is updated
+            existingProduct.ProductImage = model.ProductImage;
 
             await _context.SaveChangesAsync();
 
