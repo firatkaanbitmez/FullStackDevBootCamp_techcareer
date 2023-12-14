@@ -51,35 +51,6 @@ namespace BootcampEf.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Kurslar",
-                columns: table => new
-                {
-                    KursId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Baslik = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Kurslar", x => x.KursId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Ogrenciler",
-                columns: table => new
-                {
-                    OgrenciId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    OgrenciAd = table.Column<string>(type: "TEXT", nullable: true),
-                    OgrenciSoyad = table.Column<string>(type: "TEXT", nullable: true),
-                    Eposta = table.Column<string>(type: "TEXT", nullable: true),
-                    Telefon = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ogrenciler", x => x.OgrenciId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -186,30 +157,24 @@ namespace BootcampEf.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "KursKayitlari",
+                name: "Product",
                 columns: table => new
                 {
-                    KayitId = table.Column<int>(type: "INTEGER", nullable: false)
+                    ProductId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    OgrenciId = table.Column<int>(type: "INTEGER", nullable: false),
-                    KursId = table.Column<int>(type: "INTEGER", nullable: false),
-                    KayitTarihi = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    ProductName = table.Column<string>(type: "TEXT", nullable: true),
+                    ProductDesc = table.Column<string>(type: "TEXT", nullable: true),
+                    ProductPrice = table.Column<string>(type: "TEXT", nullable: true),
+                    UserId = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_KursKayitlari", x => x.KayitId);
+                    table.PrimaryKey("PK_Product", x => x.ProductId);
                     table.ForeignKey(
-                        name: "FK_KursKayitlari_Kurslar_KursId",
-                        column: x => x.KursId,
-                        principalTable: "Kurslar",
-                        principalColumn: "KursId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_KursKayitlari_Ogrenciler_OgrenciId",
-                        column: x => x.OgrenciId,
-                        principalTable: "Ogrenciler",
-                        principalColumn: "OgrenciId",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Product_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -250,14 +215,9 @@ namespace BootcampEf.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_KursKayitlari_KursId",
-                table: "KursKayitlari",
-                column: "KursId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_KursKayitlari_OgrenciId",
-                table: "KursKayitlari",
-                column: "OgrenciId");
+                name: "IX_Product_UserId",
+                table: "Product",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -279,19 +239,13 @@ namespace BootcampEf.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "KursKayitlari");
+                name: "Product");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Kurslar");
-
-            migrationBuilder.DropTable(
-                name: "Ogrenciler");
         }
     }
 }

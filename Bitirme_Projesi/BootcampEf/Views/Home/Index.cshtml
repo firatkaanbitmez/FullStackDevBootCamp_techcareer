@@ -6,7 +6,7 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <p>Hello, @ViewBag.UserName!</p>
+    <p>Hello,@User.Identity.Name!</p>
     <form asp-action="Logout" method="post">
         <button type="submit" class="btn btn-danger">Logout</button>
     </form>

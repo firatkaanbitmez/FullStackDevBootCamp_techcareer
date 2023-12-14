@@ -14,7 +14,7 @@ public class HomeController : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
-    private readonly ILogger<HomeController> _logger;
+
 
     public HomeController(
            UserManager<ApplicationUser> userManager,

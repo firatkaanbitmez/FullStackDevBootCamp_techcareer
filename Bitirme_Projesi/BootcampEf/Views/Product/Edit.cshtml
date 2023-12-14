@@ -1,0 +1,32 @@
+<!--Views/Product/Edit.cshtml-->
+
+@model Product
+
+<h2>Product Güncelleme</h2>
+<hr>
+
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Product" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="ProductId">
+            <div class="mb-3">
+                <label asp-for="ProductName" class="form-label">Product Adı</label>
+                <input asp-for="ProductName" class="form-control">
+            </div>
+          
+            <div class="mb-3">
+                <label asp-for="ProductDesc" class="form-label">ProductDesc</label>
+                <input asp-for="ProductDesc" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="ProductPrice" class="form-label">ProductPrice</label>
+                <input asp-for="ProductPrice" class="form-control">
+            </div>
+        
+            <button type="submit" class="btn btn-secondary">Kaydet</button>
+        
+        </form>
+    </div>
+   
+</div>
+

@@ -81,65 +81,29 @@ namespace BootcampEf.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("BootcampEf.Data.Kurs", b =>
+            modelBuilder.Entity("BootcampEf.Data.Product", b =>
                 {
-                    b.Property<int>("KursId")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Baslik")
+                    b.Property<string>("ProductDesc")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("KursId");
-
-                    b.ToTable("Kurslar");
-                });
-
-            modelBuilder.Entity("BootcampEf.Data.KursKayit", b =>
-                {
-                    b.Property<int>("KayitId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("KayitTarihi")
+                    b.Property<string>("ProductName")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("KursId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("OgrenciId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("KayitId");
-
-                    b.HasIndex("KursId");
-
-                    b.HasIndex("OgrenciId");
-
-                    b.ToTable("KursKayitlari");
-                });
-
-            modelBuilder.Entity("BootcampEf.Data.Ogrenci", b =>
-                {
-                    b.Property<int>("OgrenciId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Eposta")
+                    b.Property<string>("ProductPrice")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("OgrenciAd")
+                    b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("OgrenciSoyad")
-                        .HasColumnType("TEXT");
+                    b.HasKey("ProductId");
 
-                    b.Property<string>("Telefon")
-                        .HasColumnType("TEXT");
+                    b.HasIndex("UserId");
 
-                    b.HasKey("OgrenciId");
-
-                    b.ToTable("Ogrenciler");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -270,23 +234,13 @@ namespace BootcampEf.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BootcampEf.Data.KursKayit", b =>
+            modelBuilder.Entity("BootcampEf.Data.Product", b =>
                 {
-                    b.HasOne("BootcampEf.Data.Kurs", "Kurs")
-                        .WithMany("KursKayitlari")
-                        .HasForeignKey("KursId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("BootcampEf.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
 
-                    b.HasOne("BootcampEf.Data.Ogrenci", "Ogrenci")
-                        .WithMany("KursKayitlari")
-                        .HasForeignKey("OgrenciId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Kurs");
-
-                    b.Navigation("Ogrenci");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -338,16 +292,6 @@ namespace BootcampEf.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("BootcampEf.Data.Kurs", b =>
-                {
-                    b.Navigation("KursKayitlari");
-                });
-
-            modelBuilder.Entity("BootcampEf.Data.Ogrenci", b =>
-                {
-                    b.Navigation("KursKayitlari");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,10 +1,12 @@
-@model Kurs
+
+<!--Views/Product/Delete.cshtml-->
+@model Product
 
 <p>
-    <b> @Model.Baslik</b> isimli kursu silmek istiyor musunuz?
+    <b> @Model.ProductName</b> isimli Product silmek istiyor musunuz?
 
     <form asp-action="Delete" method="post">
-        <input type="hidden" value="@Model.KursId" name="id">
+        <input type="hidden" value="@Model.ProductId" name="id">
         <button type="submit" class="btn btn-danger">Evet</button>
         <a asp-action="Index" class="btn btn-primary">Hayır</a>
     </form>

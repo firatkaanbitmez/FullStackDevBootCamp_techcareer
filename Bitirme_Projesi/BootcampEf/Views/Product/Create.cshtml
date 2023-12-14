@@ -1,0 +1,24 @@
+
+<!--Views/Product/Create.cshtml-->
+@model Product
+
+<h2>Product Ekle</h2>
+<hr>
+<form asp-controller="Product" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="ProductName" class="form-label">Product Adı</label>
+        <input asp-for="ProductName" class="form-control">
+    </div>
+ 
+    <div class="mb-3">
+        <label asp-for="ProductDesc" class="form-label">ProductDesc</label>
+        <input asp-for="ProductDesc" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="ProductPrice" class="form-label">ProductPrice</label>
+        <input asp-for="ProductPrice" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+
+</form>

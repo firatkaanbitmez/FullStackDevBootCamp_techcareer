@@ -1,0 +1,31 @@
+<!--Views/Product/Index.cshtml-->
+
+@model IEnumerable<Product>
+
+<h2>Product Listesi</h2>
+<a href="/Product/Create" class="btn btn-primary">Product Ekle</a>
+<hr>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 150px;">@Html.DisplayNameFor(m => m.ProductId)</th>
+            <th>@Html.DisplayNameFor(m => m.ProductName)</th>
+           
+            <th style="width: 150px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ProductId)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

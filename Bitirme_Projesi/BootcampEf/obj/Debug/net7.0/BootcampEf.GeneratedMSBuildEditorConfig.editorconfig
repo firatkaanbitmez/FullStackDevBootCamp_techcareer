@@ -42,44 +42,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/KursKayit/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc0theWl0XENyZWF0ZS5jc2h0bWw=
+[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/KursKayit/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc0theWl0XEluZGV4LmNzaHRtbA==
+[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Product/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Kurs/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc1xDcmVhdGUuY3NodG1s
+[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Kurs/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Kurs/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Kurs/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3Vyc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Ogrenci/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZW5jaVxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Ogrenci/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZW5jaVxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Ogrenci/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZW5jaVxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Ogrenci/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZW5jaVxJbmRleC5jc2h0bWw=
+[C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/FIRAT/Desktop/Project-File/FullStackDevBootCamp/Bitirme_Projesi/BootcampEf/Views/Shared/Error.cshtml]

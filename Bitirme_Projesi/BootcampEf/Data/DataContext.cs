@@ -26,8 +26,9 @@ namespace BootcampEf.Data
             builder.Entity<IdentityUserToken<string>>().ToTable("AspNetUserTokens");
         }
 
-        public DbSet<Kurs> Kurslar => Set<Kurs>();
-        public DbSet<Ogrenci> Ogrenciler => Set<Ogrenci>();
-        public DbSet<KursKayit> KursKayitlari => Set<KursKayit>();
+
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Productler => Set<Product>();
+
     }
 }
