@@ -1,0 +1,28 @@
+<!--Views/Account/RegisterSucces.cshtml-->
+@{
+    ViewData["Title"] = "Registration Successful";
+    var userEmail = TempData["UserEmail"] as string;
+}
+ <style>
+        
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+        <div class="container text-center">
+
+<h2>Kayıt başarılı</h2>
+<p>Tebrikler! @userEmail E-posta adresiyle başarıyla kayıt oldunuz.</p>
+    </div>

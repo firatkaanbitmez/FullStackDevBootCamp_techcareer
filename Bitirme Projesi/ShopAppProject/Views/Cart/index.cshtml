@@ -1,0 +1,155 @@
+@model ShopAppProject.Data.CartViewModel
+@{
+    var context = ViewData["Context"] as DataContext;
+        ViewData["Title"] = "Sepetim";
+
+}
+
+
+<section class="h-100 h-custom">
+    <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <h2 class="mb-4">Sepetim (<span id="cartItemCount">@Model.CartItems.Count</span> Ürün)</h2>
+
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @TempData["ErrorMessage"]
+                    </div>
+                }
+
+                @if (Model.CartItems.Count == 0)
+                {
+                    <p>Sepetiniz boş.</p>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ürün</th>
+                                            <th>Adet</th>
+                                            <th>Fiyat</th>
+                                            <th>İşlem</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.CartItems)
+                                        {
+                                            <tr>
+                                                <td class="align-middle">
+                                                    <div class="d-flex align-items-center">
+                                                        <a href="@Url.Action("Details", "Product", new { id = item.ProductId })">
+<img src="@Url.Content(item.Product.Images.FirstOrDefault()?.FullImagePath ?? "/img/defaultproduct.png")"   class="img-fluid rounded-3" style="width: 50px;" alt="Product Image">
+
+                </a>
+                                                        <div class="flex-column ms-4">
+                                                            <p class="mb-2 text-center">
+                                                                <a href="@Url.Action("Details", "Product", new { id = item.ProductId })" class="text-decoration-none text-dark fw">@item.Product.ProductTitle</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                             <td class="align-middle">
+    <div class="d-flex flex-row align-items-center">
+        <form asp-action="UpdateQuantity" method="post" class="d-flex">
+                                                                        <input type="hidden" name="productId" value="@item.ProductId" />
+
+            <button type="submit" name="decreaseQuantity" value="@(item.Quantity - 1)" class="btn btn-link px-3 quantity-button">
+                <i class="fas fa-minus"></i>
+            </button>
+            <input id="form1" min="0" name="quantity" value="@item.Quantity" type="number" class="form-control form-control-sm mx-2" style="width: 60px;" />
+            <button type="submit" name="increaseQuantity" value="@(item.Quantity + 1)" class="btn btn-link px-3 quantity-button">
+                <i class="fas fa-plus"></i>
+            </button>
+        </form>
+    </div>
+</td>
+
+                                                <td class="align-middle">
+                                                    <p class="mb-0" style="font-weight: 500;">@item.Product.ProductPrice.ToString("C")</p>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <form method="post" action="/Cart/RemoveFromCart">
+                                                        <input type="hidden" name="productId" value="@item.ProductId" />
+                                                        <button type="submit" class="btn btn-danger">Sil</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
+                                <div class="card-body p-4">
+                                 
+                                 
+<h4>Sipariş Detayları </h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Satıcı</th>
+            <th>Toplam Tutar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sellerTotal in Model.TotalAmounts)
+        {
+            var seller = context.Users.Find(sellerTotal.Key);
+            var sellerName = seller?.BusinessCompany ?? "Bilinmiyor";
+            <tr>
+                <td>@sellerName</td>
+                <td>@sellerTotal.Value.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<hr class="my-4">
+<div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+    <p class="mb-2">Toplam Ödenecek Tutar </p>
+    <p class="mb-2">@Model.TotalAmount.ToString("C")</p>
+</div>
+                                    <!-- Bakiye kontrolü ve mesaj -->
+                                    <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                                        <p class="mb-2">Bakiyeniz</p>
+                                        <p class="mb-2">@ViewBag.WalletBalance?.ToString("C")</p>
+                                    </div>
+
+                                    <!-- Yeterli bakiye kontrolü -->
+                                    @if (Model.TotalAmount <= ViewBag.WalletBalance)
+                                    {
+                                        <form method="post" action="/Order/Create">
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>Checkout</span>
+                                                    <span>@Model.TotalAmount.ToString("C")</span>
+                                                </div>
+                                            </button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        
+                                        <p class="text-danger">Bakiyeniz yetersiz. Lütfen cüzdanınıza para ekleyin.</p>
+                                        <a class="btn btn-warning mr-5" asp-action="Wallet" asp-controller="Account">
+                                            <i class="fas fa-plus"></i> Bakiye Ekle
+                                        </a>
+                                      
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,48 @@
+<!--Views/Order/Details.cshtml-->
+
+@model ShopAppProject.Data.Order
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col">
+            <a href="@Url.Action("Index", "Order")" class="btn btn-secondary">
+                Siparişlerime Geri Dön
+            </a>
+        </div>
+    </div>
+
+    <h2>Sipariş Detayları - Sipariş No: @Model.OrderId</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p><strong>Sipariş Tarihi: </strong> @Model.OrderDate</p>
+            <p><strong>Toplam Ödeme: </strong> @Model.TotalAmount.ToString("C")</p>
+            <p><strong>Kargo Takip Bilgisi: </strong> @Model.ShipmentTrackingInfo</p>
+
+          
+        </div>
+    </div>
+
+    <h3>Sipariş Ürünleri</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ürün ID</th>
+                <th>Ürün</th>
+                <th>Miktarı</th>
+                <th>Adet Fiyatı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@item.Product.ProductId</td>
+                    <td>@item.Product.ProductTitle</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

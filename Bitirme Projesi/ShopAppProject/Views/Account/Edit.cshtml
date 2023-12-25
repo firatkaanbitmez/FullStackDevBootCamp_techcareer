@@ -1,0 +1,85 @@
+<!-- Views/Account/Edit.cshtml -->
+@model ShopAppProject.Data.ApplicationUser
+
+@{
+    ViewData["Title"] = "Bilgilerimi Güncelle";
+}
+
+<style>
+      .card {
+        background-color: transparent !important;
+        border: 0 !important;
+        margin-top: -60px;
+    }
+
+    .form-group {
+        margin-bottom: 0.2rem;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .go-back-btn {
+        position: absolute;
+        top: -5px;
+       
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-sm-center">
+        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+            <div class="text-center mb-5">
+            </div>
+            <div class="card">
+                <div class="card-body p-5">
+                    <a href="@Url.Action("Index", "Account")" class="btn btn-secondary go-back-btn"> < Hesabıma Geri Dön</a>
+                    <h1 class="fs-4 card-title fw-bold mb-4">Bilgilerimi Güncelle</h1>
+                    <hr style="mt-2">
+                    <form asp-action="Edit" method="post" class="needs-validation" novalidate="" autocomplete="off">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" class="form-control" readonly />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="FirstName" class="form-label">Ad</label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="LastName" class="form-label">Soyad</label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Address" class="form-label">Adres</label>
+                            <input asp-for="Address" class="form-control" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PhoneNumber" class="form-label">Telefon</label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

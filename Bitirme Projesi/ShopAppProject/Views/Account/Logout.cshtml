@@ -1,0 +1,24 @@
+<!-- Views/Account/Logout.cshtml -->
+
+@{
+    ViewData["Title"] = "Logout";
+}
+
+<div class="container">
+    <div class="row justify-content-sm-center">
+        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+            <div class="text-center my-4">
+                <h2>Çıkış Yap</h2>
+            </div>
+
+            <form asp-action="LogoutConfirmed" method="post" class="needs-validation" novalidate>
+                <p style="padding: 10px 0px; margin-bottom:20px;">Oturumu kapatmak istediğinizden emin misiniz?</p>
+                
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-primary" style="padding: 10px 70px; margin-bottom:20px;">Evet</button>
+                    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary" style="padding: 10px 70px; margin-bottom:20px;">Hayır</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

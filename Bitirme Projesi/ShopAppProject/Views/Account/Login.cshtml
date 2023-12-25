@@ -1,0 +1,56 @@
+<!--Views/Account/Login.cshtml-->
+
+<!--Views/Account/Login.cshtml-->
+
+@model LoginViewModel
+
+<div class="container">
+    <div class="row justify-content-sm-center">
+        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+            <div class="text-center my-4">
+                <img src="~/img/logo.png" alt="logo" width="100">
+                <h2>Giriş Yap</h2>
+            </div>
+            
+            <form asp-action="Login" method="post" class="needs-validation" novalidate autocomplete="off">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" required autofocus>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <div class="invalid-feedback">
+                        e-posta geçersiz
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="mb-2 w-100">
+                        <label asp-for="Password" class="form-label"></label>
+                        <a asp-controller="Account" asp-action="ForgotPassword" class="float-end">
+                            Şifremi unuttum
+                        </a>
+                    </div>
+                    <input asp-for="Password" type="password" class="form-control" required>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <div class="invalid-feedback">
+                        Şifre gereklidir
+                    </div>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input asp-for="RememberMe" class="form-check-input">
+                    <label asp-for="RememberMe" class="form-check-label">Beni Hatırla</label>
+                </div>
+
+                <div  class="text-center my-5">
+                <button  type="submit" class="btn btn-primary"  style="padding: 10px 70px; margin-bottom:20px;">Giriş Yap</button>
+                </div>
+
+           
+            </form>
+            <div class="text-center mt-3">
+                Hesabınız yok mu?  <a asp-controller="Account" asp-action="Register" class="text-dark">Hemen Üye Olun</a>
+            </div>
+        </div>
+    </div>
+</div>

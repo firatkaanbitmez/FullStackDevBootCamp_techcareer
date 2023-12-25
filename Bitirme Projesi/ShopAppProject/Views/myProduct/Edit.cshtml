@@ -1,0 +1,141 @@
+<!--Views/Product/Edit.cshtml-->
+
+@model Product
+<style>
+
+   .delete-checkbox {
+        display: none; /* Hide the default checkbox */
+    }
+
+    .delete-checkbox + label {
+        cursor: pointer;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border: 1px solid #d9534f;
+        position: relative;
+    }
+
+    .delete-checkbox:checked + label::before {
+        content: '✖'; /* Unicode character for a cross */
+        color: #d9534f;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 16px;
+    }
+
+
+    .mb-3 {
+        margin-bottom: 16px;
+    }
+
+    .text-danger {
+        color: #d9534f;
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .image-container {
+        display: inline-block;
+        margin: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+               cursor: pointer;
+    }
+
+    .image-container img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        border-radius: 4px;
+    }
+</style>
+
+
+<h2>Ürün Güncelle</h2>
+
+<form asp-controller="myProduct" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="ProductId">
+
+    <div class="mb-3">
+        <label asp-for="ProductCategory" class="form-label">Ürün Kategorisi</label>
+        <select asp-for="ProductCategory" asp-items="@(new SelectList(ViewBag.CategoryList, "Value", "Text"))" class="form-control">
+            <option value="">Kategori Seç</option>
+        </select>
+        <span asp-validation-for="ProductCategory" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProductTitle" class="form-label">Ürün İsmi</label>
+        <input asp-for="ProductTitle" class="form-control">
+        <span asp-validation-for="ProductTitle" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProductDesc" class="form-label">Ürün Açıklaması</label>
+        <textarea asp-for="ProductDesc" class="form-control"></textarea>
+        <span asp-validation-for="ProductDesc" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProductStock" class="form-label">Ürün Stok Miktarı</label>
+        <input asp-for="ProductStock" class="form-control">
+        <span asp-validation-for="ProductStock" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProductPrice" class="form-label">Ürün Fiyatı</label>
+        <input asp-for="ProductPrice" class="form-control">
+        <span asp-validation-for="ProductPrice" class="text-danger"></span>
+    </div>
+
+  
+    <div>
+        <div class="mb-3">
+    <label for="newImages" class="form-label">Yeni Resimler</label>
+    <input type="file" name="newImages" class="form-control" multiple accept="image/*">
+</div>
+
+ 
+    <h3>Mevcut Resimler</h3>
+@foreach (var image in Model.Images)
+{
+    <div class="image-container" onclick="toggleCheckbox(this)">
+        <img src="@Url.Content(image.FullImagePath)" alt="Ürün Resmi" style="width: 250px; height: 250px;"/>
+        <input type="checkbox" name="deleteImages" value="@image.Id" class="delete-checkbox" id="delete-@image.Id">
+        <label for="delete-@image.Id"></label> Sil
+    </div>
+}
+
+
+
+
+    </div>
+</div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+<script>
+    function toggleCheckbox(container) {
+        var checkbox = container.querySelector('.delete-checkbox');
+        checkbox.checked = !checkbox.checked;
+    }
+</script>

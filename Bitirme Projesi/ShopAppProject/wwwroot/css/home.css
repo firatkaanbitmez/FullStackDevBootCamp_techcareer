@@ -1,0 +1,152 @@
+/*Slider Stock İndirim */
+
+#limitedStockSlider {
+    max-width: 1200px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+    border-radius: 10px;
+}
+
+.carousel-caption {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 50px;
+    text-align: start;
+    align-items: center;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    max-height: 80%;
+    max-width: 500px;
+    margin-left: 40%;
+
+}
+
+.carousel-caption h5 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+
+}
+
+
+.carousel-caption .price {
+    color: #e44d26;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.carousel-caption .price del {
+    color: #777;
+    margin-right: 5px;
+}
+
+
+#limitedStockSlider img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    max-width: 50px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #333;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #555;
+
+}
+
+
+/*###############################################*/
+/*###############################################*/
+
+
+
+/* Sana Özel Cart  */
+.card-custom {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.card-custom .card-title {
+    color: #007bff;
+}
+
+.card-custom .card-text {
+    color: #6c757d;
+}
+
+.card-custom .btn-primary {
+    background-color: #ff8840;
+    border-color: #ff8840;
+}
+
+.card-custom .btn-primary:hover {
+    background-color: #bf4800;
+    border-color: #bf4800;
+}
+
+/*###############################################*/
+/*###############################################*/
+
+/*Süper Fiyat Cart */
+.card .btn-primary {
+    background-color: #ff8840;
+    border-color: #ff8840;
+}
+
+.card .btn-primary:hover {
+    background-color: #bf4800;
+    border-color: #bf4800;
+}
+
+.discounted-products .card {
+    height: 100%;
+}
+
+.card-body {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+/*###############################################*/
+/*###############################################*/
+.card {
+
+    /* Card border color */
+    border-radius: 10px !important;
+    /* Card border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    /* Card box shadow */
+    transition: transform 0.3s ease-in-out !important;
+    /* Card transition */
+}
+
+.card:hover {
+    transform: scale(1.008) !important;
+    /* Card hover effect */
+
+}

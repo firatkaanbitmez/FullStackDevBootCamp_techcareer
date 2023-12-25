@@ -1,0 +1,75 @@
+@model ShopAppProject.Data.UserProductList
+
+<style>
+    .product-list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .product-info {
+        display: flex;
+        align-items: center;
+    }
+
+    .product-image {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: .25rem;
+    }
+
+    .product-title {
+        margin-left: 10px;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .action-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .action-buttons form,
+    .action-buttons a {
+        margin-left: 10px;
+    }
+</style>
+
+<tr>
+    <td class="align-middle product-info">
+        <!-- Product Image -->
+        @if (Model.Product.Images != null && Model.Product.Images.Any())
+        {
+            var firstImage = Model.Product.Images.First();
+            <img src="@Url.Content(firstImage.FullImagePath)" class="product-image" alt="@Model.Product.ProductTitle">
+        }
+        else
+        {
+            <img src="@Url.Content("~/img/defaultproduct.png")" class="product-image" alt="Default Image">
+        }
+
+        <!-- Product Title -->
+        <a href="@Url.Action("Details", "Product", new { id = Model.Product.ProductId })" class="product-title">@Model.Product.ProductTitle</a>
+    </td>
+
+    <td class="align-middle">
+        <p>@Model.Product.ProductStock</p>
+    </td>
+
+    <td class="align-middle">
+        <p>@Model.Product.ProductPrice.ToString("C")</p>
+    </td>
+
+    <td class="align-middle">
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <form method="post" action="/MyList/RemoveFromList">
+                <input type="hidden" name="productId" value="@Model.Product.ProductId" />
+                <button type="submit" class="btn btn-danger">Sil</button>
+            </form>
+            <a href="@Url.Action("Details", "Product", new { id = Model.Product.ProductId })" class="btn btn-info">Ürüne Git</a>
+        </div>
+    </td>
+</tr>

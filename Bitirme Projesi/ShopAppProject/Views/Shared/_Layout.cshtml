@@ -1,0 +1,202 @@
+﻿<!--Views/_Layout.cshtml-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Center Shop - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ShopAppProject.styles.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<body>
+    <header>       
+
+ <!-- Navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color: #131921 !important; max-height: 65px;">
+    <div class="container-fluid mr-8">
+        <!-- Left content: Logo and "Center Shop" text -->
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="user-select: none;">
+            <img src="~/img/logo.png" alt="Logo" class="img-fluid mr-2" style="max-height: 30px;" />
+            <span>Center Shop</span>
+        </a>
+
+        <!-- Toggler button for small screens -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Right content: Navigation links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <div class="ml-auto search-bar">
+        <form class="form-inline" style="width: 100%;" method="get" asp-controller="Product" asp-action="Search">
+            <input class="form-control mr-sm-2" type="search" name="query" placeholder="Ürün, kategori veya marka ara" aria-label="Search">
+            <!-- Move the button inside the form -->
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+             <div class="navbar-nav nav-item">
+    <span class="navbar-text mr-2">
+        <div class="dropdown"style="user-select: none;">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i> @(User.Identity?.Name!)
+            </button>
+
+            <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Index">Hesabım</a>
+                <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Index">Siparişlerim</a>
+
+                @if (User.IsInRole("Admin") || User.IsInRole("Company"))
+                {
+                    <a class="dropdown-item" asp-area="" asp-controller="myProduct" asp-action="Index">Ürünlerim</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="sold" asp-action="Index">Satışlarım</a>
+                }
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item btn-logout" asp-controller="Account" asp-action="Logout">
+                        <i class="fas fa-sign-out-alt fa-rotate-180"></i> Çıkış Yap
+                    </a>
+                }
+            </div>
+
+            <!-- Inside the cart icon anchor tag -->
+            <a class="cart-link" asp-area="" asp-controller="Cart" asp-action="Index">
+                <img src="~/img/cart.png" alt="Shopping Cart" class="cart-image">
+                <span id="cartItemCount" class="badge">0</span>
+            </a>
+        </div>
+    </span>
+</div>
+
+            }
+
+            else
+            {
+                <div class="navbar-nav">
+                    <a class="btn btn-outline-primary mr-2" href="~/Account/Login">
+                        <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                    </a>
+                    <a class="btn btn-primary" href="~/Account/Register">
+                        <i class="fas fa-user-plus"></i> Üye Ol
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</nav>
+
+    
+
+
+
+   
+        
+        <nav id="firstNavbar" class="navbar navbar-expand-lg" >       
+          <a class="navbar-brand" asp-area="" asp-controller="product" asp-action="Index">Tüm Ürünler >></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav" >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="product" asp-action="Index" asp-route-category="Elektronik">Elektronik</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="product" asp-action="Index" asp-route-category="Moda">Moda</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="product" asp-action="Index" asp-route-category="Ev, Yaşam, Kırtasiye, Ofis">Ev, Yaşam, Kırtasiye, Ofis</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="product" asp-action="Index" asp-route-category="Oto, Bahçe, Yapı Market">Oto, Bahçe, Yapı Market</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="product" asp-action="Index" asp-route-category="Anne, Bebek, Oyuncak">Anne, Bebek, Oyuncak</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="product" asp-action="Index" asp-route-category="Spor, Outdoor">Spor, Outdoor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="product" asp-action="Index" asp-route-category="Kozmetik, Kişisel Bakım">Kozmetik, Kişisel Bakım</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="product" asp-action="Index" asp-route-category="Süpermarket, Pet Shop">Süpermarket, Pet Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="product" asp-action="Index" asp-route-category="Kitap, Müzik, Film, Hobi">Kitap, Müzik, Film, Hobi</a>
+            </li>
+        </ul>
+
+          </div>          
+        </nav>
+         <hr style="margin-top: 1px;">
+       
+       
+
+
+  </header>
+
+    <!-- Ana İçerik -->
+    <div class="container-fluid">
+        <div class="row">
+            <main class="col-md-12 px-md-55">
+                @RenderBody()
+                
+            </main>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 Center Shop- <a style="margin-left: 30px;" asp-area="" asp-controller="Deals" asp-action="Index">Kampanyalar</a>
+<a style="margin-left: 50px;" asp-area="" asp-controller="Shipping" asp-action="Index">Kargo</a>
+        </div>
+    </footer>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+
+    
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
+<!-- Place this script in the head section or at the end of the body -->
+<script>
+    // Function to update the cart items count
+    function updateCartItemCount() {
+        // You can use AJAX to fetch the count from the server
+        // For simplicity, I'm assuming you have a route to get the cart items count
+        // Adjust the URL accordingly
+        fetch('/Cart/GetCartItemCount')
+            .then(response => response.text())
+            .then(count => {
+                // Update the cart items count in the span element
+                document.getElementById('cartItemCount').innerText = count;
+            })
+            .catch(error => {
+                console.error('Error fetching cart items count:', error);
+            });
+    }
+
+    // Call the function on page load
+    document.addEventListener('DOMContentLoaded', function () {
+        updateCartItemCount();
+    });
+</script>

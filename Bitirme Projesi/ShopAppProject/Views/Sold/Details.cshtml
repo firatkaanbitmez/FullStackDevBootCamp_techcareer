@@ -1,0 +1,152 @@
+<!--/Views/Sold/Details.cshtml-->
+@model ShopAppProject.Data.Sold
+
+@{
+    ViewData["Title"] = "Satış Detayı";
+}
+
+<style>
+    .details-container {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    .section-header {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eaeaea;
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 22px;
+    }
+
+    .dl-horizontal dt {
+        float: left;
+        width: 180px;
+        overflow: hidden;
+        clear: left;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 200px;
+    }
+
+    .shipment-form {
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    .shipment-form label {
+        font-weight: 600;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .back-button {
+        margin-bottom: 20px;
+    }
+    .shipment-info {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    .shipment-info-label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+    .shipment-info-value {
+        color: #007bff;
+    }
+</style>
+
+<div class="container mt-5">
+    <a class="btn btn-secondary back-button" asp-action="Index">← Satılan Ürünlerinize Geri Dönün</a>
+
+    <div class="details-container">
+        <div class="section-header">Alıcının Bilgileri</div>
+        <dl class="dl-horizontal">
+            <dt>Alıcı Adı Soyadı:</dt>
+            <dd>@Model.BuyerFirstName @Model.BuyerLastName</dd>
+            <dt>Alıcı Adres:</dt>
+            <dd>@Model.BuyerAddress</dd>
+            <dt>Alıcı Telefon:</dt>
+            <dd>@Model.BuyerPhoneNumber</dd>
+        </dl>
+    </div>
+
+    <div class="details-container">
+        <div class="section-header">Satış Detayı</div>
+        <dl class="dl-horizontal">
+            <dt>Satış Tarihi:</dt>
+            <dd>@Model.SoldDate.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+            <dt>Sipariş ID:</dt>
+            <dd>@Model.Order.OrderId</dd>
+            <dt>Toplam Ödeme:</dt>
+            <dd>@Model.Order.TotalAmount.ToString("C")</dd>
+        </dl>
+    </div>
+
+    <div class="details-container">
+        <div class="section-header">Sipariş Detayları</div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Ürün</th>
+                    <th>Adet</th>
+                    <th>Adet Fiyatı</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orderDetail in Model.Order.OrderDetails)
+                {
+                    <tr>
+                        <td>@orderDetail.Product.ProductTitle</td>
+                        <td>@orderDetail.Quantity</td>
+                        <td>@orderDetail.UnitPrice.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+        <div class="shipment-info mb-5" >
+            <span class="shipment-info-label">Kargo Takip Kodu:</span>
+            <span class="shipment-info-value">@Model.ShipmentTrackingInfo</span>
+        </div>
+    
+
+   <div class="shipment-form mb-5">
+          <form asp-controller="Sold" asp-action="UpdateShipmentInfo" method="post">
+    <div class="form-group">
+        <label for="shipmentTrackingInfo">Kargo Takip Bilgisi:</label>
+        <input type="text" id="shipmentTrackingInfo" name="shipmentTrackingInfo" class="form-control" required>
+        <input type="hidden" name="soldId" value="@Model.SoldId">
+    </div>
+    <button type="submit" class="btn btn-secondary">Kargo Bilgisini Güncelle</button>
+</form>
+
+        </div>
+    
+</div>

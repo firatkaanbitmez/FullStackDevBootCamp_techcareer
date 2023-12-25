@@ -1,0 +1,523 @@
+<!--Views/myProduct/Details.cshtml-->
+@model Product
+@using System.Security.Claims
+@using System.Linq
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<style>
+  .out-of-stock-message {
+    color: red; 
+    font-size: 18px;
+    padding-left : 5%;
+}
+
+  .btn-primary .status-text {
+        color: #fff !important;
+    }
+        .title{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        
+    }
+
+.product-image-container .main-image {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.product-image-container .image-gallery .thumbnail {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.product-image-container .image-gallery .thumbnail img {
+    transition: all 0.3s ease;
+}
+
+.product-image-container .image-gallery .thumbnail:hover img {
+    transform: scale(1.1);
+}
+
+</style>
+
+@{
+  
+    List<string> breadcrumbs = new List<string> { "Anasayfa", "Tüm Ürünler" };
+   
+    if (!string.IsNullOrEmpty(ViewBag.Category))
+    {
+        breadcrumbs.Add(ViewBag.Category);
+    }
+    else if (!string.IsNullOrEmpty(ViewBag.SearchQuery))
+    {
+        breadcrumbs.Add(ViewBag.SearchQuery);
+    }
+
+    if (!string.IsNullOrEmpty(ViewBag.ProductTitle))
+    {
+        breadcrumbs.Add(ViewBag.ProductTitle);
+    }
+}
+
+<!-- Display the breadcrumb trail -->
+@for (int i = 0; i < breadcrumbs.Count; i++)
+{
+    @if (i < breadcrumbs.Count - 1)
+    {
+        <a href="@GetBreadcrumbUrl(i)">@breadcrumbs[i]</a>
+        <text> > </text>
+    }
+    else
+    {
+        @breadcrumbs[i]
+    }
+}
+
+<hr>
+
+@functions {
+  
+    string GetBreadcrumbUrl(int index)
+    {
+    
+        switch (index)
+        {
+            case 0:
+                return "/Home";
+            case 1:
+                return "/Product";
+            case 2:
+                return "/product?category=" + ViewBag.Category;
+            case 3:
+                return "/Search?query=" + ViewBag.SearchQuery;
+            case 4:
+                return "/Product/" + ViewBag.ProductTitle;
+            default:
+                return "/";
+        }
+    }
+}
+
+<section class="py-5">
+  <div class="container">
+    <div class="row gx-5">
+<aside class="col-lg-6">
+    <div class="product-image-container text-center">
+        @if (Model.Images != null && Model.Images.Any())
+        {
+            var firstImage = Model.Images.First();
+            <div class="main-image">
+                <a data-fancybox="gallery" href="@Url.Content(firstImage.FullImagePath)">
+                    <img src="@Url.Content(firstImage.FullImagePath)" class="rounded-4" alt="Product Image" style="max-width: 512px; height: auto; margin: auto; object-fit:contain; max-height:512px; min-height:512px;">
+                </a>
+            </div>
+            <div class="image-gallery d-flex justify-content-center flex-wrap mt-3">
+                @foreach (var image in Model.Images.Skip(1))
+                {
+                    <a data-fancybox="gallery" href="@Url.Content(image.FullImagePath)" class="thumbnail m-1">
+                        <img src="@Url.Content(image.FullImagePath)" alt="Product Image" style="width: 100px; height: 100px; object-fit:contain;">
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <img src="/img/defaultproduct.png" class="rounded-4" alt="Default Product Image" style="max-width: 100%; height: auto; margin: auto;">
+        }
+    </div>
+</aside>
+
+
+      <main class="col-lg-6">
+        <div class="ps-lg-3">
+          <h4 class="title text-dark">
+            @Model.ProductTitle <br />
+            
+          </h4>
+          <div class="d-flex flex-row my-3">
+            <div class="text-warning mb-1 me-2">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="ms-1">
+                4.5
+              </span>
+            </div>
+  
+        <span class="comment-span">
+            <i class="far fa-comment"></i> <span id="commentCount">@Model.Comments.Count</span>
+        </span>
+            <span class="text-success ms-4">Stok Durumu:             @Model.ProductStock
+</span>
+          </div>
+
+          <div class="mb-3">
+            <span style="color: #0f1111; font-weight: 800;" class="h5">@String.Format("{0:N2}", Model.ProductPrice) ₺</span>
+            <span class="text-muted">/Adet Fiyatı</span>
+          </div>
+
+        
+
+       
+            <!-- col.// -->
+            <div class="col-md-4 col-6 mb-3">
+              <label class="mb-2 d-block">Adet</label>
+              <div class="input-group mb-3" style="width: 170px;">
+                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
+                  <i class="fas fa-minus"></i>
+                </button>
+<input type="text" class="form-control text-center border border-secondary" id="quantityInput" placeholder="1" aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          
+                                @{
+                                var item = Model;
+                                }
+
+                                 @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (item.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier))
+                                    {
+                                        <button class="btn btn-primary" disabled>Sepete Ekle(myProduct)</button>
+                                    }
+                                    else
+                                    {
+                                          @if (item.ProductStock == 0)
+                                        {
+                                            <p class="out-of-stock-message">Stokta Yok</p>
+                                        }
+                                        else
+                                        {
+                                            <button asp-controller="Product" asp-action="Order" class="btn btn-primary  add-to-cart-btn" style="   padding: 10px 20px !important; " id="Sepetid" data-product-id="@item.ProductId">
+                                                <h7  class="status-text">Sepete Ekle</h7>
+                                            </button>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <a href="/Account/Login" class="btn btn-primary">Sepete Ekle</a>
+                                }
+                            @if (User.Identity.IsAuthenticated && Model.UserProductLists.Any(entry => entry.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier) && entry.ProductId == Model.ProductId))
+{
+    <a href="@Url.Action("RemoveFromList", "Product", new { id = Model.ProductId })" class="btn btn-success py-2 icon-hover px-3" style="font-size: 14px;">
+        <i class="fa-solid fa-xmark"></i> <span style="color: white !important;">Listenizde Mevcut</span>
+    </a>
+}
+else
+{
+    <a href="@Url.Action("AddToList", "Product", new { id = Model.ProductId })" class="btn btn-light border border-secondary py-2 icon-hover px-3" id="listemeEkleButton" style="font-size: 14px;">
+        <i class="fas fa-plus"></i> <span style="color: #131921 !important;">Listeme Ekle</span>
+    </a>
+}
+
+
+
+
+                                <p>
+                                    Bu ürünü Listesine Ekleyen Sayısı: @Model.UserProductLists.Count
+                                </p>
+
+
+
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+<!-- content -->
+
+<section class="bg-light border-top py-4">
+  <div class="container">
+    <div class="row gx-4">
+      <div class="col-lg-8 mb-4">
+        <div class="border rounded-2 px-3 py-2 bg-white">
+          <!-- Pills navs -->
+          <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+            <li class="nav-item d-flex" role="presentation">
+<a class="nav-link d-flex align-items-center justify-content-center w-100 active" id="Desc" style="cursor:default;" role="tab" data-bs-toggle="pill" data-bs-target="#ex1-pills-1" aria-selected="true">Ürün Açıklaması</a>
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+<a class="nav-link d-flex align-items-center justify-content-center w-100" id="Kampanya" style="cursor:default;"role="tab" data-bs-toggle="pill" data-bs-target="#ex1-pills-2" aria-selected="false">Kampanyalar</a>
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+<a class="nav-link d-flex align-items-center justify-content-center w-100" id="sellerinfo" style="cursor:default;" role="tab" data-bs-toggle="pill" data-bs-target="#ex1-pills-3" aria-selected="false">Satıcı Bilgileri</a>
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+<a class="nav-link d-flex align-items-center justify-content-center w-100" id="comments"style="cursor:default;" role="tab" data-bs-toggle="pill" data-bs-target="#ex1-pills-4" aria-selected="false">Yorumlar</a>
+</li>
+          </ul>
+          <!-- Pills navs -->
+
+          <!-- Pills content -->
+          <div class="tab-content" id="Desc">
+            <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" >
+               @Model.ProductTitle <br />
+              <p>
+              @Model.ProductDesc
+              </p>          
+       
+            </div>
+            <div class="tab-pane fade mb-2" id="ex1-pills-2" role="tabpanel" >
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi animi deserunt, amet aut quasi voluptatibus eius officia, consequuntur quis ipsum rem corrupti iste vero sunt nemo, error quas! Quae, temporibus! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea laborum ducimus, neque commodi explicabo sequi non quae aut corrupti voluptatum beatae nulla odio esse tempore temporibus natus eum quisquam nobis.
+            </div>
+            
+<div class="tab-pane fade mb-2" id="ex1-pills-3" role="tabpanel">
+    <h5 class="mb-3"></h5>
+    <div id="sellerInfoContainer"></div>
+</div>
+
+<div class="tab-pane fade mb-2" id="ex1-pills-4" role="tabpanel">
+    <div id="commentsContainer">
+         <!-- Yorum Ekleme Formu... -->
+    <form  asp-controller="Product" asp-action="AddComment" method="post" class="mt-4 mb-3">
+        <input type="hidden" name="productId" value="@Model.ProductId" />
+        <div class="form-group">
+            <label for="content">Yorumunuz:</label>
+            <textarea class="form-control"  name="content" required></textarea> 
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Yorum Ekle</button>
+    </form>
+        @foreach (var comment in Model.Comments)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="d-flex flex-start">
+<i class="fas fa-user fa-2x"></i>                        <div class="w-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="text-primary fw-bold mb-0">
+                                    @comment.UserName
+                                    <span class="text-dark ms-2">@comment.Content</span>
+                                </h6>
+                                <p class="mb-0">@comment.CreatedAt.ToString("dd/MM/yyyy HH:mm")</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="small mb-0" style="color: #aaa;">
+                                    <a href="#!" class="link-grey">Remove</a> •
+                                    <a href="#!" class="link-grey">Reply</a> •
+                                    <a href="#!" class="link-grey">Translate</a>
+                                </p>
+                                <div class="d-flex flex-row">
+                                    <i class="fas fa-star text-warning me-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+   
+</div>
+
+          </div>
+        </div>
+      </div>
+
+      
+       <div class="col-lg-4" style="max-width: 400px;">
+    <div class="px-0 border rounded-2 shadow-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">İlginizi Çekebilecek Ürünler</h5>
+                <!-- Random ürünlerin gösterileceği kısım -->
+                <div id="randomProductsContainer">
+                    @await Html.PartialAsync("_RandomProductsPartial", ViewData["randomProducts"])
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+  </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<script>
+
+ $(document).ready(function () {
+        // Attach click event to the "Listeme Ekle" button
+        $("#listemeEkleButton").on("click", function () {
+            // Check if the user is not authenticated
+            if (!@User.Identity.IsAuthenticated)
+            {
+                // Show an alert
+                alert("Lütfen ürünü listenize eklemek için giriş yapın.");
+            }
+        });
+    });
+ $(document).ready(function () {
+        // Initialize Fancybox
+        $("[data-fancybox]").fancybox({
+            // Options go here, you can customize the appearance and behavior
+            // For example:
+            infobar: false, // Disable the infobar
+            toolbar: false, // Disable the toolbar
+            transitionEffect: "fade", // Use fade transition
+        });
+    });
+
+  $(document).ready(function () {
+        // Load seller info when the page loads
+        $.ajax({
+            url: "/Product/GetSellerInfo",
+            method: "GET",
+            data: { userId: '@Model.UserId' },
+            success: function (data) {
+                $("#sellerInfoContainer").html(data);
+            },
+            error: function () {
+                console.log("Error loading seller info.");
+            }
+        });
+    });
+
+
+
+  $(document).ready(function () {
+        // Function to update the cart items count
+        function updateCartItemCount() {
+            // Fetch the cart items count from the server
+            $.ajax({
+                type: 'GET',
+                url: '/Cart/GetCartItemCount',
+                success: function (count) {
+                    // Update the cart items count in the span element
+                    $('#cartItemCount').text(count);
+                },
+                error: function (error) {
+                    console.error('Error fetching cart items count:', error);
+                }
+            });
+        }
+
+        // Attach click event to "Sepete Ekle" button
+        $('.add-to-cart-btn').on('click', function (e) {
+            e.preventDefault();
+
+            var productId = $(this).data('product-id');
+
+            // Make an AJAX request to add the item to the cart
+            $.ajax({
+                type: 'POST',
+                url: '/Product/Order/' + productId,
+                success: function (result) {
+                    console.log(result);
+                    
+                    // After successfully adding to the cart, update the cart items count
+                    updateCartItemCount();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+
+
+
+
+
+
+$(document).ready(function () {
+    // Get the initial quantity of the product from the input field
+    var quantityInput = $('#quantityInput');
+    var quantity = parseInt(quantityInput.val(), 10);
+
+    // Check if the initial quantity is NaN or less than 1, and set it to 1 as a default
+    if (isNaN(quantity) || quantity < 1) {
+        quantity = 1;
+        quantityInput.val(quantity); // Set the corrected value back to the input field
+    }
+
+    // Decrease quantity button click
+    $('#button-addon1').on('click', function () {
+        if (quantity > 1) {
+            quantity--;
+            quantityInput.val(quantity);
+        }
+    });
+
+    // Increase quantity button click
+    $('#button-addon2').on('click', function () {
+        quantity++;
+        quantityInput.val(quantity);
+    });
+
+  
+});
+
+
+
+  $(document).ready(function () {
+    $(".nav-link").on("click", function () {
+        console.log("Clicked tab:", $(this).attr("id"));
+
+        // Remove 'active' class from all tab links
+        $(".nav-link").removeClass("active");
+
+        // Add 'active' class to the clicked tab link
+        $(this).addClass("active");
+
+        // Get the target tab pane ID from the data-bs-target attribute
+        var targetTabPaneId = $(this).data("bs-target");
+
+        console.log("Target tab pane ID:", targetTabPaneId);
+
+        // Hide all tab panes
+        $(".tab-pane").removeClass("show active");
+
+        // Show the target tab pane
+        $(targetTabPaneId).addClass("show active");
+    });
+
+    // Load comments when the "Yorumlar" tab is clicked
+    $("#comments").on("click", function () {
+        // Make an AJAX request to get comments data
+        $.ajax({
+            url: "/Product/GetComments", // Change the URL to the actual endpoint
+            method: "GET",
+            data: { productId: @Model.ProductId },
+            success: function (data) {
+                // Replace the content of commentsContainer with the loaded comments
+                $("#commentsContainer").html(data);
+            },
+            error: function () {
+            }
+        });
+    });
+});
+
+
+
+
+ $(document).ready(function () {
+        // Load random products when the page loads
+        $.ajax({
+            url: "/Product/GetRandomProducts",
+            method: "GET",
+            success: function (data) {
+                $("#randomProductsContainer").html(data);
+            },
+            error: function () {
+                console.log("Error loading random products.");
+            }
+        });
+
+        
+    });
+</script>

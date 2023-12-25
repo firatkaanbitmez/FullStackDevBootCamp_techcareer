@@ -1,0 +1,177 @@
+
+    <!--Views/myProduct/Create.cshtml-->
+    
+    @model Product
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <p>Form submission failed. Please fix the following errors:</p>
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+
+<style>
+    .image-container {
+        position: relative;
+        width: 256px; /* Set a fixed width for the image containers */
+        margin-right: 10px; /* Add some spacing between containers if needed */
+    }
+
+    .center-buttons {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+<div class="container mb-5">
+    <div class="card">
+        <div class="card-header">
+            <h2>Yeni Ürün</h2>
+        </div>
+        <div class="card-body">
+            <form asp-controller="myProduct" asp-action="Create" method="post" enctype="multipart/form-data">
+                <div class="form-group mb-3">
+                    <label asp-for="ProductCategory" class="form-label">Ürün Kategorisi</label>
+                    @Html.DropDownListFor(model => model.ProductCategory, (SelectList)ViewBag.CategoryList, "Lütfen Bir Kategori Seçin", new { @class = "form-control" })
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="ProductTitle" class="form-label">Ürün İsmi</label>
+                    <input asp-for="ProductTitle" class="form-control">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="ProductDesc" class="form-label">Ürün Açıklaması</label>
+                    <textarea asp-for="ProductDesc" class="form-control" rows="4"></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ProductStock" class="form-label">Ürün Stok Miktarı</label>
+                        <input asp-for="ProductStock" class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ProductPrice" class="form-label">Ürün Fiyatı</label>
+                        <input asp-for="ProductPrice" class="form-control" step="0.01">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ProductImage" class="form-label">Ürün Resimleri</label>
+                    <div class="d-flex justify-content-center">
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <div class="image-container mx-2">
+                                <div class="center-buttons">
+                                    <button type="button" class="btn btn-primary btn-lg add-image">+</button>
+                                    <button type="button" class="btn btn-danger btn-lg remove-image" style="display: none;">X</button>
+                                </div>
+                                <img src="~/img/defaultproduct.png" alt="Default Image" class="img-fluid image-preview">
+                                <input type="file" name="ImageFiles" class="image-file-input" accept="image/*" style="display: none;">
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success mb-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.add-image').click(function () {
+                var container = $(this).closest('.image-container');
+                var imageFileInput = container.find('.image-file-input');
+                imageFileInput.click();
+            });
+
+            $('.image-file-input').change(function () {
+                var input = $(this)[0];
+                var container = $(this).closest('.image-container');
+                var img = container.find('.image-preview');
+                var removeButton = container.find('.remove-image');
+                var addButton = container.find('.add-image');
+
+                if (input.files && input.files[0]) {
+                    checkImageSize(input.files[0], function (resizedImage) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            img.attr('src', e.target.result);
+                            addButton.hide();
+                            removeButton.show();
+                        };
+                        reader.readAsDataURL(resizedImage);
+                    });
+                }
+            });
+
+            $('.remove-image').click(function () {
+                var container = $(this).closest('.image-container');
+                var img = container.find('.image-preview');
+                var addButton = container.find('.add-image');
+                var removeButton = container.find('.remove-image');
+                var defaultImageSrc = '~/img/defaultproduct.png';
+
+                if (img.attr('src') !== defaultImageSrc) {
+                    img.attr('src', defaultImageSrc);
+                }
+
+                addButton.show();
+                removeButton.hide();
+                container.find('.image-file-input').val('');
+            });
+
+            function checkImageSize(file, callback) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = new Image();
+                    img.src = e.target.result;
+                    img.onload = function () {
+                        var canvas = document.createElement('canvas');
+                        var ctx = canvas.getContext('2d');
+                        var maxWidth = 256;
+                        var maxHeight = 256;
+
+                        var width = img.width;
+                        var height = img.height;
+                        if (width > height) {
+                            if (width > maxWidth) {
+                                height *= maxWidth / width;
+                                width = maxWidth;
+                            }
+                        } else {
+                            if (height > maxHeight) {
+                                width *= maxHeight / height;
+                                height = maxHeight;
+                            }
+                        }
+
+                        canvas.width = width;
+                        canvas.height = height;
+                        ctx.drawImage(img, 0, 0, width, height);
+
+                        canvas.toBlob(function (blob) {
+                            var resizedImage = new File([blob], file.name, { type: file.type });
+                            callback(resizedImage);
+                        }, file.type);
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+}

@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+}
+
+<div class="container mt-5">
+    <!-- Carousel -->
+    <div id="limitedStockSlider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Carousel Item 1 -->
+         <div class="carousel-item active">
+    <div class="row">
+        <!-- Ürün görseli -->
+        <img src="/img/iphone15.jpg" class="d-block w-100" alt="Product 1" style="object-fit: cover;">
+
+      
+    </div>
+  <div class="container">
+            <h3 style="position: absolute; top: 55%; left: 65%; color:#fff; ">Iphone 15 Şimdi Stoklarda</h3>
+
+        </div>
+            <button onclick="window.location.href='product/details/8';" class="btn btn-primary" style="position: absolute; top: 75%; left: 80%; ">Hemen Satın Al</button>
+
+</div>
+
+              <!-- Carousel Item 2 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="/img/freeshipping.jpeg" class="d-block w-100" style="object-fit: cover;" alt="FreeShipping">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Item 3 -->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="/img/banner.png" class="d-block w-100" style="object-fit: cover;" alt="FreeShipping">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#limitedStockSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#limitedStockSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Sana Özel Fırsatlar Alanı -->
+    <div class="container mt-5">
+        <h2 class="text-center" style="color:#e44d26 !important;">Yeni Yıla Özel Fırsatlar</h2>
+        <hr style="color: #e44d26; margin-top:-1px;">
+        <div class="row mt-4">
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/img/yeniyil.jpg" class="card-img-top" alt="Yeni Yıl Fırsatları">
+                    <div class="card-body">
+                        <h5 class="card-title">Yeni Yıl Fırsatları</h5>
+                        <p class="card-text">%20 İndirim Fırsatı. Satın aldığınız her oyuncak setiyle 1 tanesi kadar ek çekiniz.</p>
+                        <a href="deals" class="btn btn-primary">İndirimlere Git</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/img/sanaözel1.jpg" class="card-img-top" alt="Deri Mont'larda İndirim" style="object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Deri Mont'larda İndirim</h5>
+                        <p class="card-text">%15 İndirim Fırsatı. 1.500 TL ve üzeri siparişlerinizde ücretsiz Kargo Hizmeti sunuyoruz.</p>
+                        <a href="deals" class="btn btn-primary">İndirimlere Git</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/img/sanaözel2.jpg" class="card-img-top" alt="Ebebek Giyim Ürünlerinde İndirim">
+                    <div class="card-body">
+                        <h5 class="card-title">Ebebek Giyim Ürünlerinde İndirim</h5>
+                        <p class="card-text">%20 İndirim Fırsatı. Ebebek Marka ücretsiz kargo hizmeti sunuyoruz.</p>
+                        <a href="deals" class="btn btn-primary">İndirimlere Git</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Süper Fiyat Süpe Teklif Card -->
+    <div id="randomProductsContainer">
+        @await Html.PartialAsync("_HomeRandomProduct", ViewData["randomProducts"])
+    </div>
+</div>

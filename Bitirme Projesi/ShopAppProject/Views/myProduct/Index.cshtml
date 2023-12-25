@@ -1,0 +1,126 @@
+<!--Views/myProduct/Index.cshtml-->
+@using System.Security.Claims
+@model IEnumerable<Product>
+
+
+<style>
+    .card {
+        height: 350px; /* Set a fixed height for the card */
+        border-radius: 10px;
+    }
+
+    .card-img-top {
+        max-height: 150px;
+        max-width: 120%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .card-body {
+        display: inline-block;
+        flex-direction: column;
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+        display: contents; /* This makes the link behave like a block-level element */
+    }
+
+    .card-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .btn-add-to-cart {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .card:hover .btn-add-to-cart {
+        opacity: 1;
+    }
+
+    .center-btn-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+<h2>Ürün Listem</h2>
+@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole("Admin"))
+    {
+        <a href="/myProduct/Create" class="btn btn-primary">Yeni Ürün Ekle</a>
+        <hr>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+        <div class="col-md-3 mb-3">
+                    <div class="card h-100">
+                             @if (item.Images.Any())
+            {
+                var firstImage = item.Images.First();
+                <img src="@Url.Content(firstImage.FullImagePath)" class="card-img-top" alt="Ürün Resmi">
+            }
+            else
+            {
+                <img src="/img/defaultproduct.png" class="card-img-top" alt="Varsayılan Ürün Resmi">
+            }
+
+                        <div class="card-body">
+                            <h5 class="card-title">Ürün Adı: @item.ProductTitle</h5>
+                            <p class="card-text">Stok Miktarı: @item.ProductStock</p>
+                            <p class="card-text">Ürün Fiyatı: @String.Format("{0:N2}", item.ProductPrice) ₺</p>
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-sm btn-success">Ürün Sayfası</a>
+                            <a asp-controller="myProduct" asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-sm btn-info">Yorumlar</a>
+
+                             <a asp-controller="myProduct" asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-sm btn-primary">Edit</a>
+                                <a asp-controller="myProduct" asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger" onclick="return confirm('Bu ürünü silmek istediğinizden emin misiniz?')">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <a href="/myProduct/Create" class="btn btn-primary">Yeni Ürün Ekle</a>
+        <hr>
+        <div class="row">
+            @foreach (var item in Model.Where(p => User.Identity.IsAuthenticated && p.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)))
+            {
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100">
+                          @if (item.Images.Any())
+            {
+                var firstImage = item.Images.First();
+                <img src="@Url.Content(firstImage.FullImagePath)" class="card-img-top" alt="Ürün Resmi">
+            }
+            else
+            {
+                <img src="/img/defaultproduct.png" class="card-img-top" alt="Varsayılan Ürün Resmi">
+            }
+
+                        <div class="card-body">
+                            <h5 class="card-title">Ürün Adı: @item.ProductTitle</h5>
+                            <p class="card-text">Stok Miktarı: @item.ProductStock</p>
+                            <p class="card-text">Ürün Fiyatı: @String.Format("{0:N2}", item.ProductPrice) ₺</p>
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-sm btn-success">Ürün Sayfası</a>
+                            <a asp-controller="myProduct" asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-sm btn-info">Yorumlar</a>
+
+                            @if (User.Identity.IsAuthenticated && item.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier))
+                            {
+                                <a asp-controller="myProduct" asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-sm btn-primary">Edit</a>
+                                <a asp-controller="myProduct" asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger" onclick="return confirm('Bu ürünü silmek istediğinizden emin misiniz?')">Delete</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}

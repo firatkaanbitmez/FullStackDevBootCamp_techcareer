@@ -1,0 +1,100 @@
+@model List<Product>
+<style>
+    .title-container {
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-decoration: none !important;
+    }
+
+    .title {
+        font-size: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-decoration: none !important;
+        color: inherit;
+        display: contents; /* This makes the link behave like a block-level element */
+    }
+
+    .card {
+        margin-bottom: 0px; /* Add some spacing between cards */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        transition: box-shadow 0.3s ease-in-out; /* Smooth box shadow transition */
+        text-decoration: none !important;
+        cursor: pointer;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
+    }
+
+    .card-img-top {
+        max-height: 220px; /* Set image height */
+        object-fit: contain;
+    }
+
+    .card-body {
+        padding: 10px; /* Add padding to the card body */
+    }
+
+    /* Product title rengi ve stil güncellemesi */
+.product-title {
+    font-size: 16px; /* Yeni font boyutu */
+    font-weight: bold;
+    color: #131921; /* Başlık rengi */
+    white-space: nowrap; /* Metni taşıma */
+    overflow: hidden; /* Taşan metni gizle */
+    text-overflow: ellipsis; /* Taşan metni üç nokta (...) ile göster */
+    max-width: 100%; /* En fazla genişlik */
+}
+
+    .price {
+        font-weight: bold; /* Make the price bold */
+        color: inherit; /* Fiyat rengi miras alınsın */
+          color: #e44d26; 
+    }
+
+    /* Yeniden tanımlanan renkler */
+    .text-center {
+        color: #007bff; /* Başlık rengi */
+    }
+
+    hr {
+        color: #e44d26; /* Ayırıcı çizgi rengi */
+    }
+</style>
+
+<h1 class="text-center mt-4"  style="color:#e44d26 !important;">Süper Fiyat & Süper Teklif</h1>
+<hr style="margin-top: -1px;">
+
+<div class="row discounted-products mb-5 mt-5 mr-5">
+    <div class="col-md-2">
+        <a href="Product">
+            <img src="~/img/süperteklif.jpg" style="margin-top: 0px; border-radius: 10px;" alt="Super Fiyat Teklifleri" class="img-fluid">
+        </a>
+    </div>
+    @foreach (var product in Model)
+    {
+        <div class="col-md-2">
+            <a href="@Url.Action("Details", "Product", new { id = product.ProductId })" class="card-link" style="text-decoration: none !important;">
+                <div class="card">
+                    @if (product.Images != null && product.Images.Any())
+                    {
+                        var firstImage = product.Images.FirstOrDefault();
+                        <img src="@Url.Content(firstImage.FullImagePath)" alt="@product.ProductTitle" class="card-img-top">
+                    }
+                    else
+                    {
+                        <img src="/img/defaultproduct.png" alt="Default Product Image" class="card-img-top">
+                    }
+                    <div class="card-body">
+                        <h5 class="product-title">@product.ProductTitle</h5>
+                        <p class="price">@String.Format("{0:N2}", product.ProductPrice) ₺</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

@@ -1,0 +1,15 @@
+<!-- Views/Shared/_SellerInfoPartial.cshtml -->
+
+@model ApplicationUser
+
+<h5 class="mb-3">Satıcı Bilgileri</h5>
+@if (Model != null)
+{
+    <p><strong>Vergi No:</strong> @Model.BusinessID</p>
+    <p><strong>Şirket Adı:</strong> @Model.BusinessCompany</p>
+    <p><strong>Şirket Adresi:</strong> @Model.BusinessAddress</p>
+    <p><strong>Mail adresi:</strong> @Model.BusinessMail</p>
+    <p><strong>Telefon:</strong> @Model.BusinessPhoneNumber</p>
+
+    
+}

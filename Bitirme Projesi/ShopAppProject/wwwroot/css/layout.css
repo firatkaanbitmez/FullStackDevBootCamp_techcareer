@@ -1,0 +1,156 @@
+/* _layout.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #131921 #131921;
+}
+
+.form-inline {
+    display: inline-flex;
+    position: relative;
+}
+
+.search-bar {
+    width: 25%;
+    margin: 0 auto;
+    z-index: 799;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.form-inline .btn {
+    background-color: #f8694c;
+    margin-left: -40px;
+    z-index: 801;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        width: 50%;
+    }
+}
+
+.form-inline .btn:hover {
+    background-color: #c45335;
+}
+
+body::-webkit-scrollbar {
+    width: 15px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #131921;
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #131921;
+    border-radius: 4px;
+    border: 2px solid #232E33;
+}
+
+header {
+    background-color: whitesmoke;
+}
+
+footer {
+    background-color: #fff;
+}
+
+span {
+    color: #f8694c;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+/* Category NavBar */
+#firstNavbar .navbar-nav .nav-item .nav-link {
+    color: #000000;
+    border-bottom: 2px solid transparent;
+}
+
+#firstNavbar .navbar-nav .nav-item:hover .nav-link {
+    color: #ff8840;
+}
+
+#firstNavbar .navbar-nav .nav-item .nav-link:hover {
+    border-bottom-color: #ff8840;
+}
+
+.dropdown-toggle {
+    min-width: 200px;
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Dropdown menu style */
+.dropdown {
+    margin-right: 40px;
+}
+
+.dropdown-menu-custom {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    color: #fff;
+}
+
+.dropdown-menu-custom li {
+    height: 40px;
+    line-height: 40px;
+}
+
+/* Logout Button */
+.btn-logout,
+.btn-logout-custom {
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    min-width: 200px;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+}
+
+.btn-logout-custom:hover {
+    background-color: #c0392b;
+    border-color: #922b21;
+    color: #fff;
+}
+
+/* Cart CSS */
+.cart-link {
+    padding: 8px;
+    border-radius: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: inline-block;
+    left: 20px;
+}
+
+.cart-image {
+    max-width: 38px;
+}
+
+.badge {
+    color: #f8694c;
+    font-size: 18px;
+    position: absolute;
+    top: 7px;
+    right: 9px;
+    padding: 5px 10px;
+    border-radius: 50%;
+
+}

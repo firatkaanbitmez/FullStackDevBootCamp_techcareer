@@ -1,0 +1,16 @@
+# Geçici dosyalar
+*.log
+*.tmp
+
+# Derleme sonuçları
+/build/
+
+bin/
+obj/
+bin-debug/
+obj-debug/
+.vscode/
+*.user
+*.suo
+*.cache
+*.log

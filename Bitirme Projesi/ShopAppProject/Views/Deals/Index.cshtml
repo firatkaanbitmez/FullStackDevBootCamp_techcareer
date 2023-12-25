@@ -1,0 +1,49 @@
+@model IEnumerable<ShopAppProject.Data.Deals>
+
+@{
+    var isAdmin = User.IsInRole("Admin");
+}
+
+<div class="container">
+    <h2>Kampanyalar</h2>
+
+    @if (isAdmin)
+    {
+        <a class="btn btn-primary" asp-action="Create" asp-route-id="">Yeni Oluştur</a>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Kampanya Türü</th>
+                <th>Kampanya Adı</th>
+                <th>Başlangıç Tarihi</th>
+                <th>Bitiş Tarihi</th>
+                <th>Durum</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var deal in Model)
+            {
+                <tr>
+                    <td>@deal.DealsId</td>
+                    <td>@deal.DealsType</td>
+                    <td>@deal.DealsName</td>
+                    <td>@deal.StartDate.ToString("dd/MM/yyyy")</td>
+                    <td>@deal.EndDate.ToString("dd/MM/yyyy")</td>
+                    <td>@deal.Status</td>
+                    <td>
+                        @if (isAdmin)
+                        {
+                            <a class="btn btn-info" asp-action="Edit" asp-route-id="@deal.DealsId">Düzenle</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@deal.DealsId">Sil</a>
+                        }
+                        <a class="btn btn-secondary" asp-action="Details" asp-route-id="@deal.DealsId">Detaylar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

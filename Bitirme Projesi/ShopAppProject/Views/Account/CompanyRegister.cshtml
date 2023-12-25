@@ -1,0 +1,99 @@
+<!--Views/Account/CompanyRegister.cshtml-->
+@model CompanyRegisterViewModel
+
+            <div class="row justify-content-sm-center h-100 mb-5 mt-5">
+                <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+                  
+                                             <a href="@Url.Action("Register", "Account")" class="btn btn-secondary go-back-btn mb-2"> < Kayıt Ekranına Geri Dön</a>
+
+                            <h1 class="fs-4 card-title fw-bold mb-4">Şirket Olarak Kayıt Ol</h1>
+       
+                            
+                            <form asp-action="CompanyRegister" method="post" class="needs-validation" novalidate autocomplete="off">
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="Email">E-Mail Address</label>
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="Password">Password</label>
+                                    <input asp-for="Password" type="password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="ConfirmPassword">Confirm Password</label>
+                                    <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="FirstName">First Name</label>
+                                    <input asp-for="FirstName" class="form-control" />
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="LastName">Last Name</label>
+                                    <input asp-for="LastName" class="form-control" />
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="Address">Address</label>
+                                    <input asp-for="Address" class="form-control" />
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="PhoneNumber">Phone Number</label>
+                                    <input asp-for="PhoneNumber" class="form-control" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+
+                            
+
+                             <div class="mb-3">
+                                        <label class="mb-2 text-muted" for="BusinessCompany">Business Name</label>
+                                        <input asp-for="BusinessCompany" class="form-control" />
+                                        <span asp-validation-for="BusinessCompany" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="mb-2 text-muted" for="BusinessID">Business ID</label>
+                                        <input asp-for="BusinessID" class="form-control" />
+                                        <span asp-validation-for="BusinessID" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="mb-2 text-muted" for="BusinessMail">Business E-mail</label>
+                                        <input asp-for="BusinessMail" class="form-control" />
+                                        <span asp-validation-for="BusinessMail" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="mb-2 text-muted" for="BusinessAddress">Business Address</label>
+                                        <input asp-for="BusinessAddress" class="form-control" />
+                                        <span asp-validation-for="BusinessAddress" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="mb-2 text-muted" for="BusinessPhoneNumber">Business Phone Number</label>
+                                        <input asp-for="BusinessPhoneNumber" class="form-control" />
+                                        <span asp-validation-for="BusinessPhoneNumber" class="text-danger"></span>
+                                    </div>
+
+                                <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+                            </form>
+                        
+                        <div class="card-footer py-3 border-0">
+                            <div class="text-center">
+                                Already have an account? <a href="login" class="text-dark">Login</a>
+                            </div>
+                        </div>
+                    
+                    
+                </div>
+            </div>
+    

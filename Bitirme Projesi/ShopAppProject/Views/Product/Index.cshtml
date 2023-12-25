@@ -1,0 +1,242 @@
+<!--Views/Product/Index.cshtml-->
+@using System.Security.Claims
+@model IEnumerable<Product>
+
+<style>
+     .card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+    }
+
+    .card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-text {
+        font-size: 16px;
+        color: #555;
+    }
+
+    .card-img-top {
+        max-height: 150px;
+        max-width: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+
+   .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+
+}
+
+ .out-of-stock-message {
+        color: #ff6347; /* Tomato color for out-of-stock message */
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+        display: contents; /* This makes the link behave like a block-level element */
+    }
+
+    .card-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+    }
+
+    .btn-add-to-cart {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        margin-top: 10px;
+    }
+      .card:hover .btn-add-to-cart {
+        opacity: 1;
+    }
+     .btn-primary {
+            background-color: #0779e4;
+            border-color: #0779e4;
+            color: #fff;
+         
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            
+        }
+  .btn-primary:hover, .btn-warning:hover, .danger:hover {
+            cursor: pointer;
+            filter: brightness(90%);
+        }
+   
+</style>
+
+@{
+    // Define the breadcrumb items
+    List<string> breadcrumbs = new List<string> { "Anasayfa", "Tüm Ürünler" };
+    
+    // Add category, search query, and product title to breadcrumbs if available
+    if (!string.IsNullOrEmpty(ViewBag.Category))
+    {
+        breadcrumbs.Add(ViewBag.Category);
+    }
+    else if (!string.IsNullOrEmpty(ViewBag.SearchQuery))
+    {
+        breadcrumbs.Add(ViewBag.SearchQuery);
+    }
+
+    if (!string.IsNullOrEmpty(ViewBag.ProductTitle))
+    {
+        breadcrumbs.Add(ViewBag.ProductTitle);
+    }
+}
+
+<!-- Display the breadcrumb trail -->
+@for (int i = 0; i < breadcrumbs.Count; i++)
+{
+    @if (i < breadcrumbs.Count - 1)
+    {
+        <a href="@GetBreadcrumbUrl(i)">@breadcrumbs[i]</a>
+        <text> > </text>
+    }
+    else
+    {
+        @breadcrumbs[i]
+    }
+}
+
+<hr>
+
+@functions {
+    // Function to generate the URL for each breadcrumb
+    string GetBreadcrumbUrl(int index)
+    {
+        // Add logic here to generate the appropriate URLs for each breadcrumb
+        // For example, you can use the index to determine the URL based on the breadcrumb type
+        // Replace the following placeholder logic with your actual URL generation logic
+        switch (index)
+        {
+            case 0:
+                return "/Home";
+            case 1:
+                return "/Product";
+            case 2:
+                return "/Category/" + ViewBag.Category;
+            case 3:
+                return "/Search?query=" + ViewBag.SearchQuery;
+            case 4:
+                return "/Product/" + ViewBag.ProductTitle;
+            default:
+                return "/";
+        }
+    }
+}
+
+
+<div class="row" >
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mb-3" >
+            <a href="@Url.Action("Details", "Product", new { id = item.ProductId })" class="card-link">
+                <div class="card">
+                         @if (item.Images.Any())
+            {
+                var firstImage = item.Images.First();
+                <img src="@Url.Content(firstImage.FullImagePath)" class="card-img-top" alt="Ürün Resmi">
+            }
+            else
+            {
+                <img src="/img/defaultproduct.png" class="card-img-top" alt="Varsayılan Ürün Resmi">
+            }
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title"style="font-size: 28px;">@item.ProductTitle</h5>
+                        <p class="card-text">Stok Miktarı: @item.ProductStock</p>
+                        <p class="card-text" style="font-size: 22px;">@String.Format("{0:N2}", item.ProductPrice) ₺</p>
+                        
+                        <div class="mt-auto center-btn-container">
+                            <hr>
+                            
+                            <div class="mt-3 text-end">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (item.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier))
+                                    {
+                                        <button class="btn btn-primary" disabled>Sepete Ekle(myProduct)</button>
+                                    }
+                                    else
+                                    {
+                                          @if (item.ProductStock == 0)
+                                        {
+                                            <p class="out-of-stock-message">Stokta Yok</p>
+                                        }
+                                        else
+                                        {
+                                            <button asp-controller="Product" asp-action="Order" class="btn btn-primary  add-to-cart-btn" style="   padding: 10px 20px !important; " id="Sepetid" data-product-id="@item.ProductId">
+                                                <h7  class="status-text">Sepete Ekle</h7>
+                                            </button>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <a href="/Account/Login"  style="   padding: 10px 20px !important; "class="btn btn-primary">Sepete Ekle</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+      $(document).ready(function () {
+        // Function to update the cart items count
+        function updateCartItemCount() {
+            // Fetch the cart items count from the server
+            $.ajax({
+                type: 'GET',
+                url: '/Cart/GetCartItemCount',
+                success: function (count) {
+                    // Update the cart items count in the span element
+                    $('#cartItemCount').text(count);
+                },
+                error: function (error) {
+                    console.error('Error fetching cart items count:', error);
+                }
+            });
+        }
+
+        // Attach click event to "Sepete Ekle" button
+        $('.add-to-cart-btn').on('click', function (e) {
+            e.preventDefault();
+
+            var productId = $(this).data('product-id');
+
+            // Make an AJAX request to add the item to the cart
+            $.ajax({
+                type: 'POST',
+                url: '/Product/Order/' + productId,
+                success: function (result) {
+                    console.log(result);
+                    
+                    // After successfully adding to the cart, update the cart items count
+                    updateCartItemCount();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,43 @@
+<!-- Views/Shipping/Index.cshtml -->
+@model List<ShopAppProject.Data.Shipping>
+
+@{
+    ViewData["Title"] = "Shipping Options";
+}
+
+<h2>Shipping Options</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ShippingMethodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ShippingCost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShippingMethodName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShippingCost)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ShippingId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ShippingId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

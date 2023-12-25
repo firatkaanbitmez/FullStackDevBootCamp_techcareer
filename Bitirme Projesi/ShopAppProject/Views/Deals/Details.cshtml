@@ -1,0 +1,57 @@
+@model ShopAppProject.Data.Deals
+
+<h2>Deals Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10">@Model.DealsId</dd>
+        <dt class="col-sm-2">Deals Type</dt>
+        <dd class="col-sm-10">@Model.DealsType</dd>
+        <dt class="col-sm-2">Name</dt>
+        <dd class="col-sm-10">@Model.DealsName</dd>
+        <dt class="col-sm-2">Discount Percentage</dt>
+        <dd class="col-sm-10">@Model.DiscountPercentage</dd>
+        <dt class="col-sm-2">Start Date</dt>
+        <dd class="col-sm-10">@Model.StartDate.ToString("MM/dd/yyyy")</dd>
+        <dt class="col-sm-2">End Date</dt>
+        <dd class="col-sm-10">@Model.EndDate.ToString("MM/dd/yyyy")</dd>
+        <dt class="col-sm-2">Time Left</dt>
+        <dd class="col-sm-10" id="countdown"></dd>
+        <!-- Add other properties as needed -->
+    </dl>
+    <div class="mt-3">
+        <a asp-action="Edit" asp-route-id="@Model.DealsId" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Calculate and display the countdown
+        function updateCountdown(endDate) {
+            var now = new Date();
+            var end = new Date(endDate);
+
+            var timeLeft = end - now;
+
+            if (timeLeft > 0) {
+                var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+
+                document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m ";
+                
+                // Update the countdown every second
+                setTimeout(function () {
+                    updateCountdown(endDate);
+                }, 1000);
+            } else {
+                document.getElementById("countdown").innerHTML = "Deals has ended";
+            }
+        }
+
+        // Call the function with the Deals's end date
+        updateCountdown("@Model.EndDate.ToString("yyyy-MM-ddTHH:mm:ss")");
+    </script>
+}

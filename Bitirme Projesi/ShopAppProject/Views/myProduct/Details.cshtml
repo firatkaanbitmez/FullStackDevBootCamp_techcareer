@@ -1,0 +1,25 @@
+
+<!--Views/myProduct/Details.cshtml-->
+@model Product
+
+<!-- Ürün Detayları... -->
+
+<h4>Yorumlar</h4>
+<ul>
+    @foreach (var comment in Model.Comments)
+    {
+        <li>
+            <strong>@comment.UserName:</strong> @comment.Content
+        </li>
+    }
+</ul>
+
+<!-- Yorum Ekleme Formu... -->
+<form asp-controller="myProduct" asp-action="AddComment" method="post">
+    <input type="hidden" name="productId" value="@Model.ProductId" />
+    <div class="form-group">
+        <label for="content">Yorumunuz:</label>
+        <textarea class="form-control" name="content" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Yorum Ekle</button>
+</form>

@@ -1,0 +1,29 @@
+<!-- Views/Shipping/Edit.cshtml -->
+@model ShopAppProject.Data.Shipping
+
+@{
+    ViewData["Title"] = "Edit Shipping Option";
+}
+
+<h2>Edit Shipping Option</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="ShippingId" />
+    <div class="form-group">
+        <label asp-for="ShippingMethodName"></label>
+        <input asp-for="ShippingMethodName" class="form-control" />
+        <span asp-validation-for="ShippingMethodName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ShippingCost"></label>
+        <input asp-for="ShippingCost" class="form-control" />
+        <span asp-validation-for="ShippingCost" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

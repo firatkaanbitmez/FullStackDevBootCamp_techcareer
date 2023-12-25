@@ -1,0 +1,70 @@
+<!--Views/Sold/Index.cshtml-->
+@model List<ShopAppProject.Data.Sold>
+   <style>
+      
+       
+
+        h2 {
+            color: #007bff;
+        
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #131921;
+        }
+
+        tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        .btn-details {
+            background-color: #28a745;
+            color: #fff;
+            border: 1px solid #28a745;
+        }
+
+        .btn-details:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+    </style>
+  <div class="container">
+        <h2>Satılan Ürünleriniz</h2>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Satış Tarihi</th>
+                    <th>Sipariş ID</th>
+                    <th>Toplam Ödeme</th>
+                    <th>Detaylar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var sold in Model)
+                {
+                    <tr>
+                        <td>@sold.SoldDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                        <td>@sold.Order.OrderId</td>
+                        <td>@sold.Order.TotalAmount.ToString("C")</td>
+                        <td>
+                            <a class="btn btn-details btn-sm" asp-action="Details" asp-route-id="@sold.SoldId">Detaylar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
